@@ -1,0 +1,34 @@
+.Navbar{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    height: 6vh;
+}
+
+.logo{
+    margin-right: 15px;
+    padding: 0 13px;
+    font-size: 22px;
+    background-color: #eceff1;
+    font-family: 'Roboto', sans-serif;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+.logo a{
+    text-decoration: none;
+    color: rgb(37, 37, 37);
+    transition: .3s ease-in-out;
+}
+.logo:hover a{
+    color: rgb(5, 113, 128);
+    animation-name: funny-logo;
+    animation-duration: 3s;
+    
+}
+@keyframes funny-logo{
+    0% {transform: rotate(2deg); color: rgb(5, 113, 128);}
+    25% {transform: rotate(4deg); color: aquamarine;}
+    50% {transform: rotate(-2deg); color: rgb(110, 20, 194);}
+    100% {transform: rotate(2deg); color: crimson;}
+}
