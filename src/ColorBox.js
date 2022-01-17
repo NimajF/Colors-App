@@ -1,11 +1,16 @@
 import React from "react";
 import "./ColorBox.css"
 
-function ColorBox(props){
+function ColorBox({name, background}){
     return (
-        <div className="ColorBox" style={{ background: props.background }} >
-            <span>{props.name}</span>
-            <span>MORE</span>
+        <div className="ColorBox" style={{ background: background }} >
+            <div className="copy-container">
+                <div className="box-content">
+                    <span>{name}</span>
+                </div>
+                <button className="copy-button">Copy</button>
+            </div>
+            <span className="see-more">More</span>
         </div>
     )
 }
