@@ -23,3 +23,14 @@
 .rc.slider-rail{
     height: 8px;
 }
+
+.Palette-footer {
+    background-color: white;
+    height: 5vh;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+    margin-right: 1rem;
+}

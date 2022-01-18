@@ -10,7 +10,7 @@ function Palette(props){
 
 
     const colorBoxes = props.palette.colors[level].map(color => (
-       <ColorBox background={color[format]} name={color.name}/> 
+       <ColorBox background={color[format]} name={color.name} key={color.id}/> 
     ))
 
     const changeLevel = (newLevel) => {
@@ -27,6 +27,9 @@ function Palette(props){
             <div className="Palette-colors">
                 {colorBoxes}
             </div>
+            <footer className="Palette-footer">
+                <p>{props.palette.paletteName}</p>
+            </footer>
         </div>
     )
 }
