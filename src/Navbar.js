@@ -1,10 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import Slider, { Range } from "rc-slider";
+import Select from '@mui/material/Select';
 import 'rc-slider/assets/index.css'
 import "./Palette.css"
 import "./Navbar.css"
+import { FormControl, MenuItem } from "@mui/material";
 
-function Navbar({ level, changeLevel }){
+function Navbar({ level, changeLevel, handleChange }){
+
+    const [format, setFormat] = useState("hex")
+
+    const handleChangeFormat = event => {
+        setFormat(event.target.value)
+        handleChange(event.target.value)
+    }
+
     return(
         <header className="Navbar">
             <div className="logo"> 
@@ -36,7 +46,15 @@ function Navbar({ level, changeLevel }){
                     />
                 </div>
             </div>
-            
+            <div className="select-cotainer">
+                        <FormControl>
+                            <Select value={format} onChange={handleChangeFormat} >
+                                <MenuItem value="hex">hex - #ffffff</MenuItem>
+                                <MenuItem value="rgb">RGB - rgb(10, 255, 255)</MenuItem>
+                                <MenuItem value="rgba">RGBA - rgba(10, 255, 255, 1.0)</MenuItem>
+                            </Select>
+                        </FormControl>
+            </div>
         </header>
     )
 }
