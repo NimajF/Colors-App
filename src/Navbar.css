@@ -32,3 +32,9 @@
     50% {transform: rotate(-2deg); color: rgb(110, 20, 194);}
     100% {transform: rotate(2deg); color: crimson;}
 }
+
+
+.select-container{
+    margin-left: auto;
+    margin-right: 1rem;
+}
