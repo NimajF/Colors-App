@@ -23,14 +23,16 @@
 .logo:hover a{
     color: rgb(5, 113, 128);
     animation-name: funny-logo;
-    animation-duration: 3s;
+    animation-duration: 1s;
+    letter-spacing: 2px;
     
 }
 @keyframes funny-logo{
-    0% {transform: rotate(2deg); color: rgb(5, 113, 128);}
-    25% {transform: rotate(4deg); color: aquamarine;}
-    50% {transform: rotate(-2deg); color: rgb(110, 20, 194);}
-    100% {transform: rotate(2deg); color: crimson;}
+    0% {transform: rotate(0deg); color: rgb(5, 113, 128);}
+    25% {transform: rotate(4deg); color: rgb(21, 173, 123);}
+    50% {transform: rotate(-4deg); color: rgb(110, 20, 194);}
+    75% {transform: rotate(2deg); color: crimson;}
+    100% {transform: rotate(0deg); color: rgb(5, 113, 128);}
 }
 
 
