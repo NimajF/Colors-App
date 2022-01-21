@@ -1,6 +1,6 @@
 import React from "react";
 import MiniPalette from "./MiniPalette";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { withStyles } from "@mui/styles";
 import { height } from "@mui/system";
 
@@ -9,7 +9,7 @@ import { height } from "@mui/system";
 const styles = {
     root: {
         backgroundColor: "blue",
-        height: "100%",
+        height: "100vh",
         display: "flex",
         alignItems: "flex-start",
         justifyContent: "center"
@@ -21,7 +21,7 @@ const styles = {
         alignItems: "flex-start",
         flexDirection: "column",
         flexWrap: "wrap",
-        border: "1px solid white"
+        border: "2px solid grey"
     },
     nav: {
         display: "flex",
@@ -39,8 +39,8 @@ const styles = {
 }
 
 function PaletteList(props){
-   const { palettes, classes } = props
-
+    const { palettes, classes } = props
+    const navigate = useNavigate()
     return(
         <div className={classes.root} >
             <div className={classes.container} >
@@ -49,8 +49,8 @@ function PaletteList(props){
                 </nav>
                 <div className={classes.palettes} >
                     {palettes.map(palette => (
-                    <MiniPalette {...palette}/>
-                    // <Link key={palette.id} to={`/palette/${palette.id}`} >{palette.paletteName}</Link>
+                    <MiniPalette palette={palette}/>
+                    
                     // <h2>{palette.paletteName}</h2>
                 ))}
                 </div>
