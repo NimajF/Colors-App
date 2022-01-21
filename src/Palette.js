@@ -24,7 +24,7 @@ function Palette(props){
     const palette = generatePalette(tryToFindPalette(id))
     console.log(palette)
     const colorBoxes = palette.colors[level].map(color => (
-       <ColorBox paletteId={palette.id} background={color[format]} name={color.name} key={color.id} id={color.id} /> 
+       <ColorBox paletteId={palette.id} background={color[format]} name={color.name} key={color.id} id={color.id} showLink={true} /> 
     ))
 
     const changeLevel = (newLevel) => {
