@@ -5,7 +5,7 @@ import "./Palette.css"
 import Navbar from "./Navbar";
 import seedsColors from "./seedsColors";
 import { generatePalette } from "./colorHelpers";
-
+import PaletteFooter from "./PaletteFooter";
 
 
 function Palette(props){
@@ -37,13 +37,11 @@ function Palette(props){
 
     return(
         <div className="Palette">
-            <Navbar level={level} changeLevel={changeLevel} handleChange={changeFormat} />
+            <Navbar level={level} changeLevel={changeLevel} handleChange={changeFormat} showingAllColors />
             <div className="Palette-colors">
                 {colorBoxes}
             </div>
-            <footer className="Palette-footer">
-                <p>{palette.paletteName}</p>
-            </footer>
+            <PaletteFooter palette={palette}/>
         </div>
     )
 }

@@ -9,7 +9,7 @@ import "./Palette.css"
 import "./Navbar.css"
 import { FormControl, MenuItem } from "@mui/material";
 
-function Navbar({ level, changeLevel, handleChange }){
+function Navbar({ level, changeLevel, handleChange, showingAllColors }){
 
     const [format, setFormat] = useState("hex");
     const [open, toggleOpen] = useState(false)
@@ -29,6 +29,7 @@ function Navbar({ level, changeLevel, handleChange }){
             <div className="logo"> 
                 <Link to="/">reactcolorpicker</Link>
             </div>
+            { showingAllColors && ( 
             <div className="slider-container">
                 <span>Level: {level}</span>
                 <div className="slider">
@@ -55,6 +56,7 @@ function Navbar({ level, changeLevel, handleChange }){
                     />
                 </div>
             </div>
+            )}   
             <div className="select-container">
                         <FormControl variant="standard" >
                             <Select value={format} onChange={handleChangeFormat} labelId="demo-simple-select-standard-label" id="demo-simple-select-standard">
