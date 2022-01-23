@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import seedsColors from "./seedsColors";
 import { generatePalette } from "./colorHelpers";
 import ColorBox from "./ColorBox";
@@ -48,10 +48,13 @@ function SingleColorPalette(props){
     
 
     return(
-        <div className="Palette" >
+        <div className="SingleColorPalette Palette" >
             <Navbar handleChange={changeFormat} showingAllColors={false} />
             <div className="Palette-colors">
                 {colorBoxes}
+                <div className="go-back ColorBox" >
+                    <Link to={`/palette/${paletteId}`} className="back-button" > Go back </Link>
+                </div>
             </div>
             <PaletteFooter palette={palette}/>
         </div>
