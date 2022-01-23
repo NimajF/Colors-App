@@ -38,7 +38,12 @@ function SingleColorPalette(props){
    
     
     const colorBoxes = _shades.map((color, index) => (
-        <ColorBox key={index} name={color.name} background={color[format]} showLink={false} />
+        <ColorBox 
+            key={index} 
+            name={color.name} 
+            background={color[format]} 
+            showingFullPalette={false} 
+        />
     ))
 
     const changeFormat = val => {
