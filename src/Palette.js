@@ -1,15 +1,26 @@
 import react, { useState } from "react";
 import { useParams } from "react-router-dom";
 import ColorBox from "./ColorBox";
+import { withStyles } from "@mui/styles";
 import "./Palette.css"
 import Navbar from "./Navbar";
 import seedsColors from "./seedsColors";
 import { generatePalette } from "./colorHelpers";
 import PaletteFooter from "./PaletteFooter";
 
+const styles = {
+    Palette: {
+        height: "100vh",
+        overflow: "hidden",
+    },
+    colors: {
+        height: "90%"
+    }
+}
 
 function Palette(props){
 
+    const { classes } = props
     const [level, setLevel] = useState(500)
     const [format, setFormat] = useState("hex")
 
@@ -43,9 +54,9 @@ function Palette(props){
     }
 
     return(
-        <div className="Palette">
+        <div className={classes.Palette}>
             <Navbar level={level} changeLevel={changeLevel} handleChange={changeFormat} showingAllColors />
-            <div className="Palette-colors">
+            <div className={classes.colors}>
                 {colorBoxes}
             </div>
             <PaletteFooter palette={palette}/>
@@ -53,4 +64,4 @@ function Palette(props){
     )
 }
 
-export default Palette;
+export default withStyles(styles)(Palette);
