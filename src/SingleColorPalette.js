@@ -5,30 +5,11 @@ import { generatePalette } from "./colorHelpers";
 import ColorBox from "./ColorBox";
 import Navbar from "./Navbar"
 import PaletteFooter from "./PaletteFooter";
+import styles from "./styles/PaletteStyles"
 import { withStyles } from "@mui/styles";
 
 
-const styles = {
-    Palette: {
-        height: "100vh",
-        overflow: "hidden",
-    },
-    colors: {
-        height: "90%"
-    },
-    goBack: {
-        width: "20%",
-        height: "50%",
-        margin: "0 auto",
-        display: "inline-block",
-        position: "relative",
-        cursor: "pointer",
-        marginBottom: "-3.9px",
-        opacity: 1,
-        backgroundColor: "black"
 
-        }
-    }
 
 function SingleColorPalette(props){
     const { classes } = props

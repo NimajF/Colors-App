@@ -8,15 +8,7 @@ import seedsColors from "./seedsColors";
 import { generatePalette } from "./colorHelpers";
 import PaletteFooter from "./PaletteFooter";
 
-const styles = {
-    Palette: {
-        height: "100vh",
-        overflow: "hidden",
-    },
-    colors: {
-        height: "90%"
-    }
-}
+import styles from "./styles/PaletteStyles"
 
 function Palette(props){
 
