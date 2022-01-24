@@ -18,8 +18,14 @@ const styles = {
     nav: {
         display: "flex",
         justifyContent: "space-between",
+        alignItems: "center",
         width: "100%",
-        color: "white"
+        color: "white",
+        "& a": {
+            color: "white",
+            fontFamily: "Poppins, sans-serif",
+            textDecoration: "none"
+        }
     },
     palettes: {
         boxSizing: "border-box",
