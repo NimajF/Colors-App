@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import Slider, { Range } from "rc-slider";
+import Slider from "rc-slider";
 import Select from '@mui/material/Select';
 import { IconButton, Snackbar } from "@mui/material";
 import  CloseIcon  from "@mui/icons-material/Close";
@@ -8,9 +8,56 @@ import 'rc-slider/assets/index.css'
 import "./Palette.css"
 import "./Navbar.css"
 import { FormControl, MenuItem } from "@mui/material";
+import { withStyles } from "@mui/styles";
 
-function Navbar({ level, changeLevel, handleChange, showingAllColors }){
 
+const styles = {
+    Navbar: {
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "flex-start",
+        height: "6vh",
+    },
+    // Logo: {
+    //     marginRight: "15px",
+    //     padding: '0 13px',
+    //     fontSize: "22px",
+    //     backgroundColor: "#eceff1",
+    //     fontFamily: "Roboto, sans-serif",
+    //     height: "100%",
+    //     display: 'flex',
+    //     alignItems: "center",
+    //     "& a": {
+    //         textDecoration: "none",
+    //         color: "rgb(37, 37, 37)",
+    //         transition: ".3s ease-in-out",
+    //     },
+    //     "&hover a": {
+    //         color: "rgb(5, 113, 128)",
+    //         animationName: "funny-logo",
+    //         animationDuration: "1s",
+    //         letterSpacing: "2px",
+    //     }
+    // },
+    // "@keyframes funny-logo":{
+    //     "0%": {transform: "rotate(0deg)", color: "rgb(5, 113, 128)"},
+    //     "25%": {transform: "rotate(4deg)", color: "rgb(21, 173, 123)"},
+    //     "50%": {transform: "rotate(-4deg)", color: "rgb(110, 20, 194)"},
+    //     "75%": {transform: "rotate(2deg)", color: "crimson"},
+    //     "100%": {transform: "rotate(0deg)", color: "rgb(5, 113, 128)"},
+    // },
+    
+    Slider: {
+        width: "340px",
+        margin: "0 10px",
+        display: "inline-block",
+    
+    }
+}
+
+function Navbar(props){
+
+    const { level, changeLevel, handleChange, showingAllColors, classes } = props
     const [format, setFormat] = useState("hex");
     const [open, toggleOpen] = useState(false)
 
@@ -25,14 +72,14 @@ function Navbar({ level, changeLevel, handleChange, showingAllColors }){
     }
 
     return(
-        <header className="Navbar">
+        <header className={classes.Navbar}>
             <div className="logo"> 
                 <Link to="/">reactcolorpicker</Link>
             </div>
             { showingAllColors && ( 
             <div className="slider-container">
                 <span>Level: {level}</span>
-                <div className="slider">
+                <div className={classes.Slider}>
                     <Slider
                         defaultValue={level}
                         min={100}
@@ -59,7 +106,7 @@ function Navbar({ level, changeLevel, handleChange, showingAllColors }){
             )}   
             <div className="select-container">
                         <FormControl variant="standard" >
-                            <Select value={format} onChange={handleChangeFormat} labelId="demo-simple-select-standard-label" id="demo-simple-select-standard">
+                            <Select value={format} label="Format" onChange={handleChangeFormat} labelId="demo-simple-select-standard-label" id="demo-simple-select-standard">
                                 <MenuItem value="hex">hex - #ffffff</MenuItem>
                                 <MenuItem value="rgb">RGB - rgb(10, 255, 255)</MenuItem>
                                 <MenuItem value="rgba">RGBA - rgba(10, 255, 255, 1.0)</MenuItem>
@@ -87,4 +134,4 @@ function Navbar({ level, changeLevel, handleChange, showingAllColors }){
     )
 }
 
-export default Navbar;
+export default withStyles(styles)(Navbar);

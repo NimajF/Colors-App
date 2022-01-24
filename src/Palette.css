@@ -7,22 +7,6 @@
     height: 90%;
 } */
 
-.slider{
-    width: 340px;
-    margin: 0 10px;
-    display: inline-block;
-
-}
-
-.rc-slider-track{
-    color: transparent;
-}
-.rc-slider-handle{
-    background-color: green;
-}
-.rc.slider-rail{
-    height: 8px;
-}
 
 /* .Palette-footer {
     background-color: white;

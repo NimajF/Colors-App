@@ -27,6 +27,23 @@
     letter-spacing: 2px;
     
 }
+.slider{
+    width: 340px;
+    margin: 0 10px;
+    display: inline-block;
+
+}
+
+/* .rc-slider-track{
+    color: transparent;
+}
+.rc-slider-handle{
+    background-color: green;
+}
+.rc.slider-rail{
+    height: 8px;
+} */
+
 @keyframes funny-logo{
     0% {transform: rotate(0deg); color: rgb(5, 113, 128);}
     25% {transform: rotate(4deg); color: rgb(21, 173, 123);}
