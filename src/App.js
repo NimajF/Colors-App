@@ -20,7 +20,7 @@ const [newPalettes, setNewPalette] = useState(seedsColors)
     <Router>
       <Routes>
         <Route exact path="/" element={<PaletteList palettes={newPalettes}/>}/>
-        <Route exact path="/palette/new" element={<NewPaletteForm handleSavePalette={handleSavePalette}/>}/>
+        <Route exact path="/palette/new" element={<NewPaletteForm handleSavePalette={handleSavePalette} palettes={newPalettes} />}/>
         <Route exact path="/palette/:id" element={<Palette palettes={newPalettes}/>} />
         <Route path="/palette/:paletteId/:colorId" element={<SingleColorPalette palettes={newPalettes} />} />
       </Routes>
