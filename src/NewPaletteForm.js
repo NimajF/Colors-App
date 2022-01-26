@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
@@ -13,6 +13,7 @@ import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import Button from '@mui/material/Button';
 import {ChromePicker} from "react-color"
 import DraggableColorBox from "./DraggableColorBox";
+import { ValidatorForm, TextValidator} from 'react-material-ui-form-validator';
 
 const drawerWidth = 400;
 
@@ -63,8 +64,10 @@ const AppBar = styled(MuiAppBar, {
 
 function NewPaletteForm(){
     const [open, setOpen] = React.useState(false);
-    const [color, setColor] = useState('purple')
-    const [allColors, setCurrentColor] = useState(['teal', 'aqua', 'blue'])
+    const [currentColor, setColor] = useState('purple')
+    const [allColors, setCurrentColor] = useState([])
+    const [newName, setName] = useState("")
+    
     const handleDrawerOpen = () => {
         setOpen(true);
     };
@@ -73,14 +76,34 @@ function NewPaletteForm(){
         setOpen(false);
     };
 
+    useEffect(() => {
+      ValidatorForm.addValidationRule("isColorNameUnique", value => {
+        return allColors.every(
+          ({ name }) => name.toLowerCase() !== value.toLowerCase()
+        );
+      });
+      ValidatorForm.addValidationRule("isColorUnique", value => {
+        return allColors.every(
+          ({ color }) => color !== currentColor
+        );
+      });
+    });
+
     const changeColor = newColor => {
       setColor(newColor.hex)
     };
 
     const addNewColor = () => {
-      setCurrentColor([...allColors, color] )
+      const newColor = {
+        color: currentColor, name: newName
+      }
+      setCurrentColor([...allColors, newColor] )
+      setName("")
     };
-
+   
+    const handleChange = (evt) => {
+      setName(evt.target.value);
+    };
 
     return (
         <Box sx={{ display: 'flex' }}>
@@ -125,20 +148,29 @@ function NewPaletteForm(){
               <Button variant="contained" color="secondary" >Clear Palette</Button>
               <Button variant="contained" color="primary" >Random color</Button>
             </div>
-            <ChromePicker color={color} onChangeComplete={(newColor) => changeColor(newColor)} />
-            <Button 
-              variant="contained" 
-              color="primary" 
-              style={{ backgroundColor: color}}
-              onClick={addNewColor} 
-            >Add Color
+            <ChromePicker color={currentColor} onChangeComplete={(newColor) => changeColor(newColor)} />
+            <ValidatorForm onSubmit={addNewColor} >
+              <TextValidator 
+                value={newName} 
+                onChange={handleChange}
+                validators={['required', 'isColorNameUnique', 'isColorUnique']}
+                errorMessages={['A name is required', 'Name is already taken', 'Color is already taken']} 
+              />
+              <Button 
+                variant="contained" 
+                color="primary"
+                type="submit" 
+                style={{ backgroundColor: currentColor}}
+                // onClick={addNewColor} 
+              >Add Color
             </Button>
+            </ValidatorForm>
         </Drawer>
         <Main open={open}>
             <DrawerHeader />
             
               {allColors.map(color => (
-                <DraggableColorBox color={color} />
+                <DraggableColorBox color={color.color} name={color.name} />
                
               ))}
             
