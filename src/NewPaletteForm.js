@@ -14,6 +14,7 @@ import Button from '@mui/material/Button';
 import {ChromePicker} from "react-color"
 import DraggableColorBox from "./DraggableColorBox";
 import { ValidatorForm, TextValidator} from 'react-material-ui-form-validator';
+import { useNavigate } from "react-router-dom";
 
 const drawerWidth = 400;
 
@@ -62,11 +63,12 @@ const AppBar = styled(MuiAppBar, {
     justifyContent: 'flex-end',
   }));
 
-function NewPaletteForm(){
+function NewPaletteForm(props){
     const [open, setOpen] = React.useState(false);
-    const [currentColor, setColor] = useState('purple')
-    const [allColors, setCurrentColor] = useState([])
-    const [newName, setName] = useState("")
+    const [currentColor, setColor] = useState('purple');
+    const [allColors, setCurrentColor] = useState([]);
+    const [newName, setName] = useState("");
+    const navigate = useNavigate()
     
     const handleDrawerOpen = () => {
         setOpen(true);
@@ -105,10 +107,21 @@ function NewPaletteForm(){
       setName(evt.target.value);
     };
 
+    const savePalette = () => {
+      let newPaletteName = "Test Name";
+      const newPalette = {
+        paletteName: newPaletteName,
+        id: newPaletteName.toLowerCase().replace(/ /g, "-"), 
+        colors: allColors}
+      props.handleSavePalette(newPalette)
+      navigate('/')
+      
+    }
+
     return (
         <Box sx={{ display: 'flex' }}>
         <CssBaseline />
-        <AppBar position="fixed" open={open}>
+        <AppBar position="fixed" open={open} color="default" >
             <Toolbar>
             <IconButton
                 color="inherit"
@@ -122,6 +135,7 @@ function NewPaletteForm(){
             <Typography variant="h6" noWrap component="div">
                 Persistent drawer
             </Typography>
+            <Button variant="contained" color="primary" onClick={savePalette} >Save Palette</Button>
             </Toolbar>
         </AppBar>
         <Drawer
@@ -151,7 +165,10 @@ function NewPaletteForm(){
             <ChromePicker color={currentColor} onChangeComplete={(newColor) => changeColor(newColor)} />
             <ValidatorForm onSubmit={addNewColor} >
               <TextValidator 
-                value={newName} 
+                value={newName}
+                id="filled-basic" 
+                label="Color name" 
+                variant="filled" 
                 onChange={handleChange}
                 validators={['required', 'isColorNameUnique', 'isColorUnique']}
                 errorMessages={['A name is required', 'Name is already taken', 'Color is already taken']} 
