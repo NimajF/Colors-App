@@ -1,18 +1,16 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
 import styles from "./styles/MiniPaletteStyles"
 import { withStyles } from "@mui/styles";
-
+import { Link } from "react-router-dom";
 
 function MiniPalette(props){
     const {classes, palette} = props;
-    const navigate = useNavigate()
     const miniColorBoxes = palette.colors.map(color => (
         <div 
             className={classes.miniColor} 
             style={{ backgroundColor: color.color }} 
             key={color.name}
-            onClick={() => navigate(`/palette/${palette.id}`)}
+            // onClick={() => navigate(`/palette/${palette.id}`)}
         />
 
        
@@ -20,12 +18,14 @@ function MiniPalette(props){
 
 
     return(
-        <div className={classes.root}>
-           <div className={classes.colors}>
-                {miniColorBoxes}
-           </div>
-           <h5 className={classes.title}>{palette.paletteName}</h5>
-        </div>
+        <Link to={`/palette/${palette.id}`} style={{textDecoration: "none"}} >
+            <div className={classes.root}>
+                <div className={classes.colors}>
+                        {miniColorBoxes}
+                </div>
+                <h5 className={classes.title}>{palette.paletteName}</h5>
+            </div>
+        </Link>
 
     )
 }
