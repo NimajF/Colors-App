@@ -115,7 +115,7 @@ function NewPaletteForm(props){
 
     const handlePaletteName = (evt) => {
       setPaletteName(evt.target.value)
-    }
+    };
 
     const savePalette = () => {
       const newPalette = {
@@ -125,6 +125,10 @@ function NewPaletteForm(props){
       props.handleSavePalette(newPalette)
       navigate('/')
       
+    };
+
+    const removeColor = (colorName) => {
+      setCurrentColor(allColors.filter(color => color.name !== colorName))
     }
 
     return (
@@ -208,7 +212,7 @@ function NewPaletteForm(props){
             <DrawerHeader />
             
               {allColors.map(color => (
-                <DraggableColorBox color={color.color} name={color.name} />
+                <DraggableColorBox key={color.name} color={color.color} name={color.name} handleClick={() => removeColor(color.name)} />
                
               ))}
             

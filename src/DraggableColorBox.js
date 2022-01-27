@@ -1,7 +1,7 @@
 import React from "react";
 import { withStyles } from "@mui/styles";
 import DeleteIcon from '@mui/icons-material/Delete';
-import { Transform } from "@mui/icons-material";
+
 
 const styles = {
     root: {
@@ -37,10 +37,10 @@ const styles = {
 
 function DraggableColorBox(props){
     return(
-        <div className={props.classes.root} style={{ backgroundColor: props.color }} >
+        <div className={props.classes.root} style={{ backgroundColor: props.color }}>
             <div className={props.classes.boxContent} >
                 <span>{props.name}</span>
-                <DeleteIcon className={props.classes.deleteIcon} />
+                <DeleteIcon className={props.classes.deleteIcon} onClick={props.handleClick} />
             </div>
            
         </div>
