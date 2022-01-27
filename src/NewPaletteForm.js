@@ -68,11 +68,11 @@ const AppBar = styled(MuiAppBar, {
 function NewPaletteForm(props){
     const [open, setOpen] = React.useState(false);
     const [currentColor, setColor] = useState('aquamarine');
-    const [allColors, setCurrentColor] = useState([]);
+    const [allColors, setCurrentColor] = useState(props.palettes[0].colors);
     const [newColorName, setName] = useState("");
     const [newPaletteName, setPaletteName] = useState("");
     const navigate = useNavigate()
-    
+    const isPaletteFull = allColors.length >= 20;
     const handleDrawerOpen = () => {
         setOpen(true);
     };
@@ -133,6 +133,22 @@ function NewPaletteForm(props){
 
     const removeColor = (colorName) => {
       setCurrentColor(allColors.filter(color => color.name !== colorName))
+    };
+
+    const clearColors = () => {
+      setCurrentColor([])
+    };
+
+    const addRandomColor= () => {
+      let selectRandomPalette = props.palettes[Math.floor(Math.random() * props.palettes.length)]
+      let randomColor = selectRandomPalette.colors[Math.floor(Math.random() * selectRandomPalette.colors.length)]
+      console.log(randomColor)
+      setColor(randomColor.hex)
+      const newColor = {
+        color: randomColor.color, name: randomColor.name
+      }
+      setCurrentColor([...allColors, newColor] )
+      setName("")
     }
 
     let onSortEnd = ({oldIndex, newIndex}) => {
@@ -193,8 +209,8 @@ function NewPaletteForm(props){
             <Divider />
             <Typography variant="h4" > Create your palette </Typography>
             <div>
-              <Button variant="contained" color="secondary" >Clear Palette</Button>
-              <Button variant="contained" color="primary" >Random color</Button>
+              <Button variant="contained" color="secondary" onClick={clearColors} >Clear Palette</Button>
+              <Button variant="contained" color="primary" onClick={addRandomColor} disabled={isPaletteFull} >Random color</Button>
             </div>
             <ChromePicker color={currentColor} onChangeComplete={(newColorName) => changeColor(newColorName)} />
             <ValidatorForm onSubmit={addNewColor} >
@@ -212,9 +228,11 @@ function NewPaletteForm(props){
                 variant="contained" 
                 color="primary"
                 type="submit" 
-                style={{ backgroundColor: currentColor}}
+                style={{ backgroundColor: isPaletteFull ? "grey" : currentColor}}
+                disabled={isPaletteFull}
                 // onClick={addNewColor} 
-              >Add Color
+              >
+                {isPaletteFull ? "Palette Full" : "Add Color"}
             </Button>
             </ValidatorForm>
         </Drawer>
