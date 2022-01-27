@@ -15,10 +15,8 @@ function ColorBox({paletteId, name, background, id, showingFullPalette, classes}
     const [copied, setCopy] = useState(false)
 
     const changeCopyState = () => {
-        setTimeout(() => {
-            setCopy((!copied), 1500)
-                
-        })
+        setCopy(true)
+        setTimeout(() => setCopy(false), 1500)
     }
 
     // const isDarkColor = chroma(background).luminance() <= 0.08;
