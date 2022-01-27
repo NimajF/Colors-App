@@ -12,9 +12,11 @@ import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import Button from '@mui/material/Button';
 import {ChromePicker} from "react-color"
-import DraggableColorBox from "./DraggableColorBox";
+import DraggableColorList from "./DraggableColorList";
 import { ValidatorForm, TextValidator} from 'react-material-ui-form-validator';
 import { useNavigate } from "react-router-dom";
+import { arrayMoveImmutable } from "array-move";
+
 
 const drawerWidth = 400;
 
@@ -65,7 +67,7 @@ const AppBar = styled(MuiAppBar, {
 
 function NewPaletteForm(props){
     const [open, setOpen] = React.useState(false);
-    const [currentColor, setColor] = useState('purple');
+    const [currentColor, setColor] = useState('aquamarine');
     const [allColors, setCurrentColor] = useState([]);
     const [newColorName, setName] = useState("");
     const [newPaletteName, setPaletteName] = useState("");
@@ -97,6 +99,8 @@ function NewPaletteForm(props){
       });
     });
 
+    
+
     const changeColor = newColor => {
       setColor(newColor.hex)
     };
@@ -108,7 +112,7 @@ function NewPaletteForm(props){
       setCurrentColor([...allColors, newColor] )
       setName("")
     };
-   
+
     const handleChange = (evt) => {
       setName(evt.target.value);
     };
@@ -130,6 +134,12 @@ function NewPaletteForm(props){
     const removeColor = (colorName) => {
       setCurrentColor(allColors.filter(color => color.name !== colorName))
     }
+
+    let onSortEnd = ({oldIndex, newIndex}) => {
+      setCurrentColor(
+        arrayMoveImmutable(allColors, oldIndex, newIndex)
+      )
+    };
 
     return (
         <Box sx={{ display: 'flex' }}>
@@ -210,11 +220,13 @@ function NewPaletteForm(props){
         </Drawer>
         <Main open={open}>
             <DrawerHeader />
-            
-              {allColors.map(color => (
-                <DraggableColorBox key={color.name} color={color.color} name={color.name} handleClick={() => removeColor(color.name)} />
-               
-              ))}
+            <DraggableColorList 
+              colors={allColors} 
+              removeColor={removeColor} 
+              axis='xy'
+              onSortEnd={onSortEnd} 
+            />
+              
             
         </Main>
         </Box>
