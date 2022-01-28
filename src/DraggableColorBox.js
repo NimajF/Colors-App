@@ -31,7 +31,7 @@ const styles = {
     },
     deleteIcon: {
         color: "rgba(0, 0, 0, 0.5)",
-        transition: "all .3s ease-in-out"
+        transition: ".2s ease-in-out"
     }
 };
 
