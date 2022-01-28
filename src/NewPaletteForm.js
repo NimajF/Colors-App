@@ -1,14 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { styled } from '@mui/material/styles';
+import PaletteFormNav from './PaletteFormNav'
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
-import CssBaseline from '@mui/material/CssBaseline';
-import MuiAppBar from '@mui/material/AppBar';
-import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import Button from '@mui/material/Button';
 import {ChromePicker} from "react-color"
@@ -39,22 +36,7 @@ const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(
     }),
   }),
 );
-const AppBar = styled(MuiAppBar, {
-    shouldForwardProp: (prop) => prop !== 'open',
-  })(({ theme, open }) => ({
-    transition: theme.transitions.create(['margin', 'width'], {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen,
-    }),
-    ...(open && {
-      width: `calc(100% - ${drawerWidth}px)`,
-      marginLeft: `${drawerWidth}px`,
-      transition: theme.transitions.create(['margin', 'width'], {
-        easing: theme.transitions.easing.easeOut,
-        duration: theme.transitions.duration.enteringScreen,
-      }),
-    }),
-  }));
+
   
   const DrawerHeader = styled('div')(({ theme }) => ({
     display: 'flex',
@@ -70,13 +52,12 @@ function NewPaletteForm(props){
     const [currentColor, setColor] = useState('aquamarine');
     const [allColors, setCurrentColor] = useState(props.palettes[0].colors);
     const [newColorName, setName] = useState("");
-    const [newPaletteName, setPaletteName] = useState("");
     const navigate = useNavigate()
     const isPaletteFull = allColors.length >= 20;
-    const handleDrawerOpen = () => {
-        setOpen(true);
-    };
 
+    const handleDrawerOpen = () => {
+      setOpen(true);
+  };
     const handleDrawerClose = () => {
         setOpen(false);
     };
@@ -117,11 +98,11 @@ function NewPaletteForm(props){
       setName(evt.target.value);
     };
 
-    const handlePaletteName = (evt) => {
-      setPaletteName(evt.target.value)
-    };
+    // const handlePaletteName = (evt) => {
+    //   setPaletteName(evt.target.value)
+    // };
 
-    const savePalette = () => {
+    const savePalette = (newPaletteName) => {
       const newPalette = {
         paletteName: newPaletteName,
         id: newPaletteName.toLowerCase().replace(/ /g, "-"), 
@@ -159,35 +140,7 @@ function NewPaletteForm(props){
 
     return (
         <Box sx={{ display: 'flex' }}>
-        <CssBaseline />
-        <AppBar position="fixed" open={open} color="default" >
-            <Toolbar>
-            <IconButton
-                color="inherit"
-                aria-label="open drawer"
-                onClick={handleDrawerOpen}
-                edge="start"
-                sx={{ mr: 2, ...(open && { display: 'none' }) }}
-            >
-                <MenuIcon />
-            </IconButton>
-            <Typography variant="h6" noWrap component="div">
-                Persistent drawer
-            </Typography>
-            <ValidatorForm onSubmit={savePalette} >
-              <TextValidator 
-                value={newPaletteName} 
-                label={"Palette Name"}  
-                name={newPaletteName} 
-                onChange={handlePaletteName} 
-                validators={["required", "isPaletteNameUnique"]}
-                errorMessages={["Enter Palette name", "Name is already in use"]}
-              />
-              <Button variant="contained" color="primary" type="submit" >Save Palette</Button>
-
-            </ValidatorForm>
-            </Toolbar>
-        </AppBar>
+          <PaletteFormNav open={open} classes={props.classes} palettes={props.palettes} savePalette={savePalette} handleDrawerOpen={handleDrawerOpen} /> 
         <Drawer
             sx={{
             width: drawerWidth,
