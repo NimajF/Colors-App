@@ -40,11 +40,10 @@ const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(
   
   const DrawerHeader = styled('div')(({ theme }) => ({
     display: 'flex',
-    alignItems: 'center',
+    justifyContent: 'flex-end',
     padding: theme.spacing(0, 1),
     // necessary for content to be below app bar
     ...theme.mixins.toolbar,
-    justifyContent: 'flex-end',
   }));
 
 function NewPaletteForm(props){
@@ -125,6 +124,8 @@ function NewPaletteForm(props){
             '& .MuiDrawer-paper': {
                 width: drawerWidth,
                 boxSizing: 'border-box',
+                display: "flex",
+                alignItems: "center"
             },
             }}
             variant="persistent"
@@ -137,10 +138,10 @@ function NewPaletteForm(props){
             </IconButton>
             </DrawerHeader>
             <Divider />
-            <Typography variant="h4" > Create your palette </Typography>
-            <div>
-              <Button variant="contained" color="secondary" onClick={clearColors} >Clear Palette</Button>
-              <Button variant="contained" color="primary" onClick={addRandomColor} disabled={isPaletteFull} >Random color</Button>
+            <Typography variant="h4"  style={{ alignSelf: "center", marginTop: "2rem" }} > Create your palette </Typography>
+            <div style={{ width: "90%", display: "flex", justifyContent: "center", gap: "1px", marginTop: "1rem" }} >
+              <Button style={{ width: "50%" }} variant="contained" color="secondary" onClick={clearColors} >Clear Palette</Button>
+              <Button style={{ width: "50%" }} variant="contained" color="primary" onClick={addRandomColor} disabled={isPaletteFull} >Random color</Button>
             </div>
             <ColorPickerForm isPaletteFull={isPaletteFull} addNewColor={addNewColor} colors={allColors} />
         </Drawer>

@@ -1,9 +1,32 @@
 import React, { useState, useEffect } from "react";
 import Button from '@mui/material/Button';
+import { withStyles } from "@mui/styles";
 import {ChromePicker} from "react-color"
 import { ValidatorForm, TextValidator} from 'react-material-ui-form-validator';
+
+const styles = {
+  root: {
+    width: "90%"
+  },
+  picker: {
+    width: "100% !important",
+    marginTop: "2rem"
+  },
+  addColor: {
+    width: "100%",
+    padding: "1rem !important",
+    marginTop: "1rem !important",
+    fontSize: "2rem !important"
+  },
+  colorNameInput: {
+    width: "100%",
+    marginTop: "1rem !important",
+    height: "70px"
+  }
+}
+
 function ColorPickerForm(props){
-    const { isPaletteFull, addNewColor, colors, currentColor } = props;
+    const { isPaletteFull, addNewColor, colors, currentColor, classes } = props;
     const [newCurrentColor, setColor] = useState(currentColor);
     const [newColorName, setName] = useState("");
     
@@ -37,20 +60,23 @@ function ColorPickerForm(props){
     };
     
     return(
-        <div>
-            <ChromePicker color={newCurrentColor} onChangeComplete={(newColorName) => changeColor(newColorName)} />
+        <div className={classes.root} >
+            <ChromePicker className={classes.picker} color={newCurrentColor} onChangeComplete={(newColorName) => changeColor(newColorName)} />
             <ValidatorForm onSubmit={handleSubmit} >
               <TextValidator 
+                className={classes.colorNameInput}
                 value={newColorName}
                 name={newColorName}
                 id="filled-basic" 
                 label="Color name" 
                 variant="filled" 
+                margin="normal"
                 onChange={handleChange}
                 validators={['required', 'isColorNameUnique', 'isColorUnique']}
                 errorMessages={['A name is required', 'Name is already taken', 'Color is already taken']} 
               />
               <Button 
+                className={classes.addColor}
                 variant="contained" 
                 color="primary"
                 type="submit" 
@@ -64,4 +90,4 @@ function ColorPickerForm(props){
     )
 }
 
-export default ColorPickerForm;
+export default withStyles(styles)(ColorPickerForm);
