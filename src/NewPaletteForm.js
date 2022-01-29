@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { styled } from '@mui/material/styles';
-import { withStyles } from "@mui/styles";
 import PaletteFormNav from './PaletteFormNav';
 import ColorPickerForm from "./ColorPickerForm";
 import Box from '@mui/material/Box';
@@ -143,7 +142,7 @@ function NewPaletteForm(props){
               <Button style={{ width: "50%" }} variant="contained" color="secondary" onClick={clearColors} >Clear Palette</Button>
               <Button style={{ width: "50%" }} variant="contained" color="primary" onClick={addRandomColor} disabled={isPaletteFull} >Random color</Button>
             </div>
-            <ColorPickerForm isPaletteFull={isPaletteFull} addNewColor={addNewColor} colors={allColors} />
+            <ColorPickerForm isPaletteFull={isPaletteFull} addNewColor={addNewColor} colors={allColors} currentColor={currentColor} />
         </Drawer>
         <Main open={open}>
             <DrawerHeader />
@@ -161,4 +160,4 @@ function NewPaletteForm(props){
     }
         
     
-    export default withStyles(styled, { withTheme: true })(NewPaletteForm);
+    export default NewPaletteForm;
