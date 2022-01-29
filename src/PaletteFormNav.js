@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { styled } from '@mui/material/styles';
+import { withStyles } from "@mui/styles";
 import CssBaseline from '@mui/material/CssBaseline';
 import MuiAppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
@@ -14,11 +15,15 @@ import { ValidatorForm, TextValidator} from 'react-material-ui-form-validator';
 const drawerWidth = 400;
 const AppBar = styled(MuiAppBar, {
     shouldForwardProp: (prop) => prop !== 'open',
-  })(({ theme, open }) => ({
+  },
+  )(({ theme, open }) => ({
     transition: theme.transitions.create(['margin', 'width'], {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
     }),
+    flexDirection: "row",
+    justifyContent: "space-between",
+    height: "64px",
     ...(open && {
       width: `calc(100% - ${drawerWidth}px)`,
       marginLeft: `${drawerWidth}px`,
@@ -31,7 +36,6 @@ const AppBar = styled(MuiAppBar, {
 function PaletteFormNav(props){
     const { open, palettes } = props;
     const [newPaletteName, setPaletteName] = useState("");
-    
     
     const handlePaletteName = (evt) => {
         setPaletteName(evt.target.value)
@@ -47,7 +51,7 @@ function PaletteFormNav(props){
     })
 
     return(
-        <div>
+        <div style={{ display: "flex" }} >
             <CssBaseline />
             <AppBar position="fixed" open={open} color="default" >
                 <Toolbar>
@@ -61,26 +65,30 @@ function PaletteFormNav(props){
                     <MenuIcon />
                 </IconButton>
                 <Typography variant="h6" noWrap component="div">
-                    Persistent drawer
+                    Create your Palette
                 </Typography>
-                <ValidatorForm onSubmit={() => props.savePalette(newPaletteName)} >
-                <TextValidator 
-                    value={newPaletteName} 
-                    label={"Palette Name"}  
-                    name={newPaletteName} 
-                    onChange={handlePaletteName} 
-                    validators={["required", "isPaletteNameUnique"]}
-                    errorMessages={["Enter Palette name", "Name is already in use"]}
-                />
-                <Button variant="contained" color="primary" type="submit" >Save Palette</Button>
-                <Link to="/" >
-                    <Button variant="contained" color="secondary" >Go Back</Button>
-                </Link>
-                </ValidatorForm>
+                
                 </Toolbar>
+                <div >
+                  <ValidatorForm onSubmit={() => props.savePalette(newPaletteName)} >
+                  <TextValidator 
+                      value={newPaletteName} 
+                      label={"Palette Name"}  
+                      name={newPaletteName} 
+                      onChange={handlePaletteName} 
+                      validators={["required", "isPaletteNameUnique"]}
+                      errorMessages={["Enter Palette name", "Name is already in use"]}
+                  />
+                  <Button variant="contained" color="primary" type="submit" >Save Palette</Button>
+                  
+                  </ValidatorForm>
+                  <Link to="/" >
+                      <Button variant="contained" color="secondary" >Go Back</Button>
+                  </Link>
+                </div>
             </AppBar>
         </div>
     )
 }
 
-export default PaletteFormNav;
+export default withStyles(styled, { withTheme: true })(PaletteFormNav);

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { styled } from '@mui/material/styles';
+import { withStyles } from "@mui/styles";
 import PaletteFormNav from './PaletteFormNav';
 import ColorPickerForm from "./ColorPickerForm";
 import Box from '@mui/material/Box';
@@ -159,4 +160,4 @@ function NewPaletteForm(props){
     }
         
     
-export default NewPaletteForm;
+    export default withStyles(styled, { withTheme: true })(NewPaletteForm);
