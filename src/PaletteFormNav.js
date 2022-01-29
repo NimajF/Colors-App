@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { styled } from '@mui/material/styles';
 import { withStyles } from "@mui/styles";
@@ -23,6 +23,7 @@ const AppBar = styled(MuiAppBar, {
     }),
     flexDirection: "row",
     justifyContent: "space-between",
+    alignItems: "center",
     height: "64px",
     ...(open && {
       width: `calc(100% - ${drawerWidth}px)`,
@@ -35,6 +36,7 @@ const AppBar = styled(MuiAppBar, {
   }));
 function PaletteFormNav(props){
     const { open, palettes, savePalette } = props;
+    const [isFormShowing, setFormState] = useState(false);
     
     // const handlePaletteName = (evt) => {
     //     setPaletteName(evt.target.value)
@@ -48,6 +50,10 @@ function PaletteFormNav(props){
     //         );
     //       });
     // })
+
+    const showForm = () => {
+      setFormState(true);
+    }
 
     return(
         <div style={{ display: "flex" }} >
@@ -68,14 +74,18 @@ function PaletteFormNav(props){
                 </Typography>
                 
                 </Toolbar>
-                <div >
+                <div style={{ marginRight: "1rem" }} >
                   
-                  <PaletteMetaForm palettes={palettes} handleSubmit={savePalette} />
-                  <Link to="/" >
-                      <Button variant="contained" color="secondary" >Go Back</Button>
+                  <Link to="/" style={{ textDecoration: "none" }} >
+                      <Button style={{ margin: "0 0.5rem" }} variant="contained" color="secondary" >Go Back</Button>
                   </Link>
+                  <Button variant="contained" onClick={showForm}>
+                      Save Palette
+                  </Button>
                 </div>
             </AppBar>
+            {isFormShowing && <PaletteMetaForm palettes={palettes} handleSubmit={savePalette} /> }
+
         </div>
     )
 }
