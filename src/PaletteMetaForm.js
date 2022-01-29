@@ -58,7 +58,7 @@ function PaletteMetaForm(props){
                   
             </DialogContent>
             <DialogActions>
-            <Button onClick={handleClose}>Cancel</Button>
+            <Button onClick={props.hideForm}>Cancel</Button>
             <Button variant="contained" color="primary" type="submit" >Save Palette</Button>
 
             </DialogActions>
