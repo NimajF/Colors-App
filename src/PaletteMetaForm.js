@@ -9,17 +9,13 @@ import { ValidatorForm, TextValidator} from 'react-material-ui-form-validator';
 
 
 function PaletteMetaForm(props){
-    const [open, setOpen] = useState(true);
     const [newPaletteName, setPaletteName] = useState("");
 
 //   const handleClickOpen = () => {
 //     setOpen(true);
 //   };
 
-  const handleClose = () => {
-    setOpen(false);
-  };
-
+ 
   useEffect(() => {
         ValidatorForm.addValidationRule("isPaletteNameUnique", value => {
             return props.palettes.every(
@@ -36,7 +32,7 @@ function PaletteMetaForm(props){
   return(
       <div>
         
-        <Dialog open={open} onClose={handleClose}>
+        <Dialog open={true} onClose={props.hideForm}>
             <DialogTitle>Choose a Palette Name</DialogTitle>
             <ValidatorForm onSubmit={() => props.handleSubmit(newPaletteName)} >
                 <DialogContent>
