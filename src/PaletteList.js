@@ -6,7 +6,7 @@ import { withStyles } from "@mui/styles";
 import styles from "./styles/PaletteListStyles"
 
 function PaletteList(props){
-    const { palettes, classes } = props;
+    const { palettes, classes, deletePalette } = props;
 
     
     
@@ -20,7 +20,7 @@ function PaletteList(props){
                 </nav>
                 <div className={classes.palettes} >
                     {palettes.map(palette => (
-                    <MiniPalette key={palette.id} palette={palette}/>
+                    <MiniPalette key={palette.id} id={palette.id} palette={palette} handleDelete={deletePalette} />
                     
                     
                 ))}
