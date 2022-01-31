@@ -15,7 +15,7 @@ const styles = {
         display: "inline-block",
         position: "relative",
         cursor: "pointer",
-        marginBottom: "-3.9px",
+        marginBottom: "-4px",
         opacity: 1,
         backgroundColor: "black",
         [media.down("lg")]: {
