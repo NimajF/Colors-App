@@ -1,3 +1,5 @@
+import media from "./sizes"
+
 const styles = {
     Palette: {
         height: "100vh",
@@ -15,9 +17,21 @@ const styles = {
         cursor: "pointer",
         marginBottom: "-3.9px",
         opacity: 1,
-        backgroundColor: "black"
-    
-        }
+        backgroundColor: "black",
+        [media.down("lg")]: {
+            width: "25%",
+            height: "33.3333%",
+        },
+        [media.down("md")]: {
+            width: "50%",
+            height: "20%",
+        },
+        [media.down("xs")]: {
+            width: "100%",
+            height: "10%",
+        },
 
+        },
+        
 }
 export default styles;

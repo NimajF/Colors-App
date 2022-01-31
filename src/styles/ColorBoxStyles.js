@@ -14,12 +14,12 @@ const styles = {
         },
         [media.down("lg")]: {
             width: "25%",
-            height: props => props.showingFullPalette ? "20%" : "40%",
+            height: props => props.showingFullPalette ? "20%" : "33.3333%",
             marginBottom: "-4px"
         },
         [media.down("md")]: {
             width: "50%",
-            height: props => props.showingFullPalette ? "10%" : "40%",
+            height: props => props.showingFullPalette ? "10%" : "20%",
             marginBottom: "-4px"
         },
         [media.down("xs")]: {
@@ -116,6 +116,9 @@ const styles = {
             marginBottom: "0",
             padding: "1rem",
             textTransform: "uppercase",
+            [media.down("xs")]: {
+                fontSize: "5rem"
+            },
         },
         "& p": {
             fontSize: "2rem",
