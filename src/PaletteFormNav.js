@@ -10,9 +10,10 @@ import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import AddToPhotosIcon from '@mui/icons-material/AddToPhotos';
 import Button from '@mui/material/Button';
+import styles from "./styles/NavbarStyles";
 
 
-const drawerWidth = 400;
+const drawerWidth = 300;
 const AppBar = styled(MuiAppBar, {
     shouldForwardProp: (prop) => prop !== 'open',
   },
@@ -35,7 +36,7 @@ const AppBar = styled(MuiAppBar, {
     }),
   }));
 function PaletteFormNav(props){
-    const { open, palettes, savePalette } = props;
+    const { open, palettes, savePalette, classes } = props;
     const [isFormShowing, setFormState] = useState(false);
     
     // const handlePaletteName = (evt) => {
@@ -72,18 +73,18 @@ function PaletteFormNav(props){
                 >
                     <AddToPhotosIcon />
                 </IconButton>
-                <Typography variant="h6" noWrap component="div">
+                <Typography variant="h6" className={classes.navTitle} noWrap component="div">
                     Create your Palette
                 </Typography>
                 
                 </Toolbar>
-                <div style={{ marginRight: "1rem" }} >
+                <div className={classes.navBtns}>
                   
                   <Link to="/" style={{ textDecoration: "none" }} >
-                      <Button style={{ margin: "0 0.5rem" }} variant="contained" color="secondary" >Go Back</Button>
+                      <Button className={classes.button} variant="contained" color="secondary" >Go Back</Button>
                   </Link>
-                  <Button variant="contained" onClick={showForm}>
-                      Save Palette
+                  <Button className={classes.button} variant="contained" onClick={showForm}>
+                      Save
                   </Button>
                 </div>
             </AppBar>
@@ -93,4 +94,4 @@ function PaletteFormNav(props){
     )
 }
 
-export default withStyles(styled, { withTheme: true })(PaletteFormNav);
+export default withStyles(styles, { withTheme: true })(PaletteFormNav);

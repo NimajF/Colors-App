@@ -14,7 +14,7 @@ import { useNavigate } from "react-router-dom";
 import { arrayMoveImmutable } from "array-move";
 
 
-const drawerWidth = 400;
+const drawerWidth = 300;
 
 const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(
   ({ theme, open }) => ({
@@ -47,7 +47,7 @@ const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(
   }));
 
 function NewPaletteForm(props){
-    const [open, setOpen] = React.useState(false);
+    const [open, setOpen] = useState(false);
     const [currentColor, setColor] = useState('aquamarine');
     const [allColors, setCurrentColor] = useState(props.palettes[0].colors);
     const navigate = useNavigate()
@@ -140,8 +140,8 @@ function NewPaletteForm(props){
             <Divider />
             <Typography variant="h4"  style={{ alignSelf: "center", marginTop: "2rem" }} > Create your palette </Typography>
             <div style={{ width: "90%", display: "flex", justifyContent: "center", gap: "1px", marginTop: "1rem" }} >
-              <Button style={{ width: "50%" }} variant="contained" color="secondary" onClick={clearColors} >Clear Palette</Button>
-              <Button style={{ width: "50%" }} variant="contained" color="primary" onClick={addRandomColor} disabled={isPaletteFull} >Random color</Button>
+              <Button style={{ width: "200px", padding: "6px" }} variant="contained" color="secondary" onClick={clearColors} >Clear Palette</Button>
+              <Button style={{ width: "200px", padding: "6px"}} variant="contained" color="primary" onClick={addRandomColor} disabled={isPaletteFull} >Random color</Button>
             </div>
             <ColorPickerForm isPaletteFull={isPaletteFull} addNewColor={addNewColor} colors={allColors} currentColor={currentColor} />
         </Drawer>
