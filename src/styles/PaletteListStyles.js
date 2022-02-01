@@ -1,6 +1,15 @@
 import media from "./sizes"
 import bg from "./bg.svg"
 const styles = {
+    "@global": {
+        ".fade-exit": {
+            opacity: 1
+        },
+        ".fade-exit-active": {
+            opacity: 0,
+            transition: "opacity .3s ease-out"
+        },
+    },
     root: {
         height: "100vh",
         display: "flex",

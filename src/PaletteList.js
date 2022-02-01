@@ -2,6 +2,10 @@ import React from "react";
 import MiniPalette from "./MiniPalette";
 import { Link } from "react-router-dom";
 import { withStyles } from "@mui/styles";
+import {
+    CSSTransition,
+    TransitionGroup,
+  } from 'react-transition-group';
 
 import styles from "./styles/PaletteListStyles"
 
@@ -18,14 +22,16 @@ function PaletteList(props){
                     <h1 className={classes.heading} >React Colors</h1>
                     <Link  className={classes.paletteFormLink} to={`/palette/new`}>Create your own palette</Link>
                 </nav>
-                <div className={classes.palettes} >
-                    {palettes.map(palette => (
-                    <MiniPalette key={palette.id} id={palette.id} palette={palette} handleDelete={deletePalette} />
-                    
-                    
-                ))}
+                
+                    <TransitionGroup className={classes.palettes}>
+                        {palettes.map(palette => (
+                            <CSSTransition key={palette.id} classNames="fade" timeout={300}>
+                                <MiniPalette key={palette.id} id={palette.id} palette={palette} handleDelete={deletePalette} />
+                            </CSSTransition>
+                         ))}
+                    </TransitionGroup>
                 </div>
-            </div>
+            
             
            
         </div>
