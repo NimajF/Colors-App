@@ -48,8 +48,11 @@ const styles = {
         },
     },
     navTitle: {
+        width: "100%",
         [media.down("xs")]: {
-            fontSize: "1rem"
+            fontSize: "1rem",
+            marginLeft: "0.5rem" ,
+            width: "80%"
           }
     },
     navBtns: {
@@ -59,7 +62,8 @@ const styles = {
           textDecoration: "none"
         },
         [media.down("xs")]: {
-          marginRight: "0.3rem"
+          marginRight: "0.04rem",
+          flexDirection: "column"
         }
       },
       button: {

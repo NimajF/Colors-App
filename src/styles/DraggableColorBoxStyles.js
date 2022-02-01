@@ -23,7 +23,8 @@ const styles = {
         },
         [media.down("sm")]: {
             width: "100%",
-            height: "5%"
+            height: "5%",
+            overflow: "hidden"
         },
     },
     boxContent: {
@@ -36,7 +37,14 @@ const styles = {
         textTransform: "uppercase",
         fontSize: "12px",
         display: "flex",
-        justifyContent: "space-between"
+        justifyContent: "space-between",
+        [media.down("sm")]: {
+            width: "100%",
+            height: "5%",
+            alignItems: "flex-start",
+            overflow: "visible",
+            padding: "20px"
+        },
     },
     deleteIcon: {
         color: "rgba(0, 0, 0, 0.5)",
