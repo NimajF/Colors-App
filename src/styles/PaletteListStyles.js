@@ -1,3 +1,5 @@
+import media from "./sizes"
+
 const styles = {
     root: {
         backgroundColor: "blue",
@@ -13,7 +15,12 @@ const styles = {
         alignItems: "flex-start",
         flexDirection: "column",
         flexWrap: "wrap",
-        border: "2px solid grey"
+        [media.down("xl")]: {
+            width: "80%",  
+        },
+        [media.down("xs")]: { 
+            width: "70%"
+        },
     },
     nav: {
         display: "flex",
@@ -32,7 +39,15 @@ const styles = {
         width: "100%",
         display: "grid",
         gridTemplateColumns: "repeat(3, 30%)",
-        gridGap: "5%"
+        gridGap: "2.5rem",
+        [media.down("md")]: { 
+            gridTemplateColumns: "repeat(2, 50%)"
+        },
+        [media.down("xs")]: { 
+            gridTemplateColumns: "repeat(1, 100%)",
+            gridGap: "1rem"
+        },
+        
     }
 } 
 export default styles;
