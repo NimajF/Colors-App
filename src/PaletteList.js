@@ -15,8 +15,8 @@ function PaletteList(props){
         <div className={classes.root} >
             <div className={classes.container} >
                 <nav className={classes.nav} >
-                    <h1>React Colors</h1>
-                    <Link to={`/palette/new`}>Create your own palette</Link>
+                    <h1 className={classes.heading} >React Colors</h1>
+                    <Link  className={classes.paletteFormLink} to={`/palette/new`}>Create your own palette</Link>
                 </nav>
                 <div className={classes.palettes} >
                     {palettes.map(palette => (

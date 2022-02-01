@@ -1,13 +1,29 @@
 import media from "./sizes"
-
+import bg from "./bg.svg"
 const styles = {
     root: {
-        backgroundColor: "blue",
         height: "100vh",
         display: "flex",
         alignItems: "flex-start",
-        justifyContent: "center"
-
+        justifyContent: "center",
+        backgroundColor: "#3D46AA",
+        backgroundImage: `url(${bg})`,
+        backgroundAttachment: "fixed",
+        /* background by SVGBackgrounds.com */
+        overflow: "scroll"
+    },
+    heading: {
+        fontSize: "2rem",
+        textShadow: "1px 1px 2px black"
+    },
+    paletteFormLink: {
+        fontSize: "1.1rem",
+        textShadow: "1px 2px 6px black",
+        transition: "transform .2s ease-in-out",
+        "&:hover": {
+            transform: "scale(1.01)",
+            color: "white",
+        }
     },
     container: {
         width: "50%",
@@ -45,7 +61,7 @@ const styles = {
         },
         [media.down("xs")]: { 
             gridTemplateColumns: "repeat(1, 100%)",
-            gridGap: "1rem"
+            gridGap: "1.4rem"
         },
         
     }
