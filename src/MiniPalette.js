@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import DeleteIcon from '@mui/icons-material/Delete';
 
 function MiniPalette(props){
-    const {classes, palette, handleDelete, id} = props;
+    const {classes, palette, openDialog, id} = props;
     const miniColorBoxes = palette.colors.map(color => (
         <div 
             className={classes.miniColor} 
@@ -15,10 +15,10 @@ function MiniPalette(props){
         />
     ))
     
-    const deletePalette = e => {
+    const handleDialog = e => {
         e.stopPropagation();
-        handleDelete(id);
-    }
+        openDialog(id);
+    };
 
     return(
         
@@ -26,7 +26,7 @@ function MiniPalette(props){
                 <DeleteIcon 
                         className={classes.deleteIcon} 
                         style={{transition: "all .2s ease-in-out"}} 
-                        onClick={deletePalette}
+                        onClick={handleDialog}
                     />
                 <Link to={`/palette/${palette.id}`} style={{textDecoration: "none"}} >
                     
