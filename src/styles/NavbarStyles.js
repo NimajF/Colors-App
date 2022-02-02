@@ -67,11 +67,11 @@ const styles = {
         }
       },
       button: {
-        margin: "0 0.5rem",
+        margin: "0 0.5rem !important",
         [media.down("xs")]: {
-          margin: "0 0.2rem",
-          padding: "0.3rem",
-          fontSize: "0.7rem"
+          margin: "0 0.2rem !important",
+          padding: "0.3rem !important",
+          fontSize: "0.7rem !important"
         }
       }
     

@@ -40,6 +40,7 @@ const styles = {
         justifyContent: "space-between",
         [media.down("sm")]: {
             width: "100%",
+            bottom: "3px",
             height: "5%",
             alignItems: "flex-start",
             overflow: "visible",
@@ -48,7 +49,7 @@ const styles = {
     },
     deleteIcon: {
         color: "rgba(0, 0, 0, 0.5)",
-        transition: ".2s ease-in-out"
+        transition: "all .2s ease-in-out !important"
     }
 };
 
