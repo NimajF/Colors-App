@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import Palette from './Palette';
 import seedsColors from './seedsColors';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
@@ -15,9 +15,9 @@ function App() {
     setNewPalette([...newPalettes, newSavedPalette]);
 };
 
-  const deletePalette = paletteId => {
-    setNewPalette(newPalettes.filter(palette => palette.id !== paletteId))
-  }
+  const deletePalette = useCallback((paletteId) => {
+    setNewPalette(np => np.filter(palette => palette.id !== paletteId))
+  }, [])
 
   useEffect(() => {
     window.localStorage.setItem("palettes", JSON.stringify(newPalettes));

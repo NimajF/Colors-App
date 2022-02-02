@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useCallback } from "react";
 import styles from "./styles/MiniPaletteStyles"
 import { withStyles } from "@mui/styles";
 import { Link } from "react-router-dom";
 import DeleteIcon from '@mui/icons-material/Delete';
 
-function MiniPalette(props){
+const MiniPalette = React.memo(props => {
     const {classes, palette, openDialog, id} = props;
     const miniColorBoxes = palette.colors.map(color => (
         <div 
@@ -15,10 +15,10 @@ function MiniPalette(props){
         />
     ))
     
-    const handleDialog = e => {
+    const handleDialog =  useCallback(e => {
         e.stopPropagation();
         openDialog(id);
-    };
+    }, [id, openDialog]);
 
     return(
         
@@ -40,7 +40,7 @@ function MiniPalette(props){
 
     )
 }
-
+)
 
 export default withStyles(styles)(MiniPalette);
 //high order component. Returns a new version of this component with these styles

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
 import MiniPalette from "./MiniPalette";
 import { Link } from "react-router-dom";
 import { withStyles } from "@mui/styles";
@@ -25,19 +25,20 @@ function PaletteList(props){
     const [open, setDialogState] = useState(false);
     const [id, setId] = useState("");
     
-    const openDialog = (paletteId) => {
+    const openDialog = useCallback(paletteId => {
         setDialogState(true);
         setId(paletteId);
-    };
-    const closeDialog = () => {
-        setDialogState(false);
-        setId("");
-    }
-    
-    const handleDelete = () => {
+    }, []);
+    const handleDelete = useCallback(() => {
         deletePalette(id)
         setDialogState(false)
-    }
+    }, [id])
+    const closeDialog = useCallback(() => {
+        setDialogState(false);
+        setId("");
+    }, []) 
+    
+    
     
     return(
         <div className={classes.root} >
