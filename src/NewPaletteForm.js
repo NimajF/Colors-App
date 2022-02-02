@@ -148,7 +148,8 @@ function NewPaletteForm(props){
         <Main open={open}>
             <DrawerHeader />
             <DraggableColorList 
-              colors={allColors} 
+              colors={allColors}
+              distance={2}
               removeColor={removeColor} 
               axis='xy'
               onSortEnd={onSortEnd} 
