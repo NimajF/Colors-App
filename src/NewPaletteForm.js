@@ -67,7 +67,9 @@ function NewPaletteForm(props){
       const newPalette = {
         paletteName: newPaletteName,
         id: newPaletteName.toLowerCase().replace(/ /g, "-"), 
-        colors: allColors}
+        colors: allColors,
+        type: "custom"
+      }
       props.handleSavePalette(newPalette)
       navigate('/')
       

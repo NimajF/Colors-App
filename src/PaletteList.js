@@ -51,7 +51,7 @@ function PaletteList(props){
                                 key={palette.id} 
                                 id={palette.id} 
                                 palette={palette} 
-                                openDialog={openDialog} />
+                                openDialog={palette.type === "custom" && openDialog} />
                         </CSSTransition>
                      ))}
                 </TransitionGroup>

@@ -23,11 +23,11 @@ const MiniPalette = React.memo(props => {
     return(
         
             <div className={classes.root}>
-                <DeleteIcon 
+                {palette.type === "custom" && <DeleteIcon 
                         className={classes.deleteIcon} 
                         style={{transition: "all .2s ease-in-out"}} 
                         onClick={handleDialog}
-                    />
+                    />}
                 <Link to={`/palette/${palette.id}`} style={{textDecoration: "none"}} >
                     
                 <div className={classes.colors}>
