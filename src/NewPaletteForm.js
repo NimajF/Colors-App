@@ -83,15 +83,24 @@ function NewPaletteForm(props){
       setCurrentColor([])
     };
 
+    const checkDuplicateColor = colorName => {
+      return allColors.some(color => color.name === colorName);
+    };
+
     const addRandomColor= () => {
-      let selectRandomPalette = props.palettes[Math.floor(Math.random() * props.palettes.length)]
-      let randomColor = selectRandomPalette.colors[Math.floor(Math.random() * selectRandomPalette.colors.length)]
+      let selectRandomPalette = props.palettes[Math.floor(Math.random() * props.palettes.length)];
+      let randomColor;
+      let isDuplicateColor = true;
+      while (isDuplicateColor) {
+        randomColor = selectRandomPalette.colors[Math.floor(Math.random() * selectRandomPalette.colors.length)];
+        isDuplicateColor = checkDuplicateColor(randomColor.name)
+      }
       setColor(randomColor.hex)
       const newColor = {
         color: randomColor.color, name: randomColor.name
       }
       setCurrentColor([...allColors, newColor] )
-    }
+    };
 
     let onSortEnd = ({oldIndex, newIndex}) => {
       setCurrentColor(
