@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { generatePalette } from "./colorHelpers";
 import ColorBox from "./ColorBox";
@@ -6,9 +6,6 @@ import Navbar from "./Navbar"
 import PaletteFooter from "./PaletteFooter";
 import styles from "./styles/PaletteStyles"
 import { withStyles } from "@mui/styles";
-
-
-
 
 function SingleColorPalette(props){
     const { classes, palettes } = props
@@ -18,13 +15,11 @@ function SingleColorPalette(props){
 
     const tryToFindPalette = id => {
         return palettes.find(function(palette) {
-            return palette.id === id
+            return palette.id === id;
         })
     }
 
-    const palette = generatePalette(tryToFindPalette(paletteId))
-
-    
+    const palette = generatePalette(tryToFindPalette(paletteId));
 
     const gatherShades = (palette, colorToFilterBy) => {
         let shades = []
@@ -36,12 +31,10 @@ function SingleColorPalette(props){
             
         }
         return shades.slice(1);
-    }
+    };
 
     const _shades = gatherShades(palette, colorId)
-    console.log(_shades)
    
-    
     const colorBoxes = _shades.map((color, index) => (
         <ColorBox 
             key={index} 

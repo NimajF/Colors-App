@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { styled } from '@mui/material/styles';
-import { withStyles } from "@mui/styles";
 import PaletteMetaForm from "./PaletteMetaForm";
 import CssBaseline from '@mui/material/CssBaseline';
 import MuiAppBar from '@mui/material/AppBar';
@@ -11,7 +9,8 @@ import IconButton from '@mui/material/IconButton';
 import AddToPhotosIcon from '@mui/icons-material/AddToPhotos';
 import Button from '@mui/material/Button';
 import styles from "./styles/NavbarStyles";
-
+import { styled } from '@mui/material/styles';
+import { withStyles } from "@mui/styles";
 
 const drawerWidth = 300;
 const AppBar = styled(MuiAppBar, {
@@ -36,22 +35,9 @@ const AppBar = styled(MuiAppBar, {
     }),
   }));
 function PaletteFormNav(props){
-    const { open, palettes, savePalette, classes } = props;
+    const { open, palettes, savePalette, handleDrawerOpen, classes } = props;
     const [isFormShowing, setFormState] = useState(false);
     
-    // const handlePaletteName = (evt) => {
-    //     setPaletteName(evt.target.value)
-    //   };
-
-
-    // useEffect(() => {
-    //     ValidatorForm.addValidationRule("isPaletteNameUnique", value => {
-    //         return palettes.every(
-    //           ({ paletteName }) => paletteName.toLowerCase() !== value.toLowerCase()
-    //         );
-    //       });
-    // })
-
     const showForm = () => {
       setFormState(true);
     }
@@ -67,7 +53,7 @@ function PaletteFormNav(props){
                 <IconButton
                     color="inherit"
                     aria-label="open drawer"
-                    onClick={props.handleDrawerOpen}
+                    onClick={handleDrawerOpen}
                     edge="start"
                     sx={{ mr: 2, ...(open && { display: 'none' }) }}
                 >

@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { useParams } from "react-router-dom";
-import ColorBox from "./ColorBox";
-import { withStyles } from "@mui/styles";
-import "./Palette.css"
-import Navbar from "./Navbar";
 import { generatePalette } from "./colorHelpers";
+import ColorBox from "./ColorBox";
 import PaletteFooter from "./PaletteFooter";
+import Navbar from "./Navbar";
+import { withStyles } from "@mui/styles";
+import "./Palette.css";
 
 import styles from "./styles/PaletteStyles"
 
@@ -23,8 +23,7 @@ function Palette(props){
         })
     }
 
-    const palette = generatePalette(tryToFindPalette(id))
-    console.log(palette)
+    const palette = generatePalette(tryToFindPalette(id));
     const colorBoxes = palette.colors[level].map(color => (
        <ColorBox 
             paletteId={palette.id} 

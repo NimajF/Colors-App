@@ -1,4 +1,3 @@
-import React from "react";
 import { withStyles } from "@mui/styles";
 import styles from "./styles/PaletteFooterStyles"
 

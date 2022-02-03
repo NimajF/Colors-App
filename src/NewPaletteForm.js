@@ -1,7 +1,9 @@
-import React, { useState } from "react";
-import { styled } from '@mui/material/styles';
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { arrayMoveImmutable } from "array-move";
 import PaletteFormNav from './PaletteFormNav';
 import ColorPickerForm from "./ColorPickerForm";
+import DraggableColorList from "./DraggableColorList";
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
 import Typography from '@mui/material/Typography';
@@ -9,10 +11,7 @@ import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import Button from '@mui/material/Button';
-import DraggableColorList from "./DraggableColorList";
-import { useNavigate } from "react-router-dom";
-import { arrayMoveImmutable } from "array-move";
-
+import { styled } from '@mui/material/styles';
 
 const drawerWidth = 300;
 
@@ -60,25 +59,9 @@ function NewPaletteForm(props){
         setOpen(false);
     };
 
-   
-
-    
-
-    // const changeColor = newColor => {
-    //   setColor(newColor.hex)
-    // };
-
     const addNewColor = (newColor) => {
       setCurrentColor([...allColors, newColor] )
     };
-
-    // const handleChange = (evt) => {
-    //   setName(evt.target.value);
-    // };
-
-    // const handlePaletteName = (evt) => {
-    //   setPaletteName(evt.target.value)
-    // };
 
     const savePalette = (newPaletteName) => {
       const newPalette = {
@@ -162,4 +145,4 @@ function NewPaletteForm(props){
     }
         
     
-    export default NewPaletteForm;
+export default NewPaletteForm;

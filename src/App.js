@@ -1,10 +1,10 @@
 import { useState, useEffect, useCallback } from 'react';
-import Palette from './Palette';
-import seedsColors from './seedsColors';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Palette from './Palette';
 import PaletteList from './PaletteList';
 import SingleColorPalette from './SingleColorPalette';
 import NewPaletteForm from './NewPaletteForm';
+import seedsColors from './seedsColors';
 
 
 function App() {
@@ -34,9 +34,6 @@ function App() {
         <Route exact path="/palette/:id" element={<Palette palettes={newPalettes}/>} />
         <Route path="/palette/:paletteId/:colorId" element={<SingleColorPalette palettes={newPalettes} />} />
       </Routes>
-      {/* <div className="App">
-        <Palette palette={generatePalette(seedsColors[4])} />
-      </div> */}
     </Router>
     
   );

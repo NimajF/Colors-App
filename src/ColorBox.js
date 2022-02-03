@@ -1,11 +1,10 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import CopyToClipboard from "react-copy-to-clipboard";
 import { Link } from "react-router-dom";
-import styles from "./styles/ColorBoxStyles"
-import classNames from "classnames"
+import classNames from "classnames";
 import { withStyles } from "@mui/styles";
-import "./ColorBox.css"
-
+import "./ColorBox.css";
+import styles from "./styles/ColorBoxStyles";
 
 
 

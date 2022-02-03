@@ -1,8 +1,9 @@
 import React, { useCallback } from "react";
-import styles from "./styles/MiniPaletteStyles"
-import { withStyles } from "@mui/styles";
 import { Link } from "react-router-dom";
+import styles from "./styles/MiniPaletteStyles";
+import { withStyles } from "@mui/styles";
 import DeleteIcon from '@mui/icons-material/Delete';
+
 
 const MiniPalette = React.memo(props => {
     const {classes, palette, openDialog, id} = props;
@@ -11,7 +12,6 @@ const MiniPalette = React.memo(props => {
             className={classes.miniColor} 
             style={{ backgroundColor: color.color }} 
             key={color.name}
-            // onClick={() => navigate(`/palette/${palette.id}`)}
         />
     ))
     

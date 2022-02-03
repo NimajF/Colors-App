@@ -1,11 +1,7 @@
 import React, { useCallback, useState } from "react";
 import MiniPalette from "./MiniPalette";
 import { Link } from "react-router-dom";
-import { withStyles } from "@mui/styles";
-import {
-    CSSTransition,
-    TransitionGroup,
-} from 'react-transition-group';
+import { CSSTransition, TransitionGroup} from 'react-transition-group';
 import Dialog from '@mui/material/Dialog';
 import DialogTitle from '@mui/material/DialogTitle';
 import List from '@mui/material/List';
@@ -18,6 +14,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import { blue } from "@mui/material/colors";
 import { red } from "@mui/material/colors";
 import styles from "./styles/PaletteListStyles";
+import { withStyles } from "@mui/styles";
 
 function PaletteList(props){
     const { palettes, classes, deletePalette } = props;
@@ -32,7 +29,7 @@ function PaletteList(props){
     const handleDelete = useCallback(() => {
         deletePalette(id)
         setDialogState(false)
-    }, [id])
+    }, [id, deletePalette])
     const closeDialog = useCallback(() => {
         setDialogState(false);
         setId("");
