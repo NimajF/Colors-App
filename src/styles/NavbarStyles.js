@@ -41,9 +41,12 @@ const styles = {
     
     Slider: {
         width: "340px",
-        margin: "0 10px",
+        margin: "0 10px 0 15px",
         display: "inline-block",
-        [media.down("md")]: {
+        "& span":{
+          fontWeight: "bolder"
+        },
+        [media.down("sm")]: {
             width: "150px",
         },
     },

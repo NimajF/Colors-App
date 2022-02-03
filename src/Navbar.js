@@ -37,7 +37,7 @@ function Navbar(props){
             </div>
             { showingAllColors && ( 
             <div className="slider-container">
-                <span>Level: {level}</span>
+                <span style={{ fontFamily: "Poppins", fontWeight: "bolder" }}>Level: {level}</span>
                 <div className={classes.Slider}>
                     <Slider
                         defaultValue={level}
@@ -65,7 +65,7 @@ function Navbar(props){
             )}   
             <div className="select-container">
                         <FormControl variant="standard" >
-                            <Select value={format} label="Format" onChange={handleChangeFormat} labelId="demo-simple-select-standard-label" id="demo-simple-select-standard">
+                            <Select value={format} style={{ fontFamily: "Poppins", fontWeight: "bold" }} label="Format" onChange={handleChangeFormat} labelId="demo-simple-select-standard-label" id="demo-simple-select-standard">
                                 <MenuItem value="hex">hex - #ffffff</MenuItem>
                                 <MenuItem value="rgb">RGB - rgb(10, 255, 255)</MenuItem>
                                 <MenuItem value="rgba">RGBA - rgba(10, 255, 255, 1.0)</MenuItem>

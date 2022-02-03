@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import CopyToClipboard from "react-copy-to-clipboard";
 import { Link } from "react-router-dom";
 import styles from "./styles/ColorBoxStyles"
+import classNames from "classnames"
 import { withStyles } from "@mui/styles";
-
 import "./ColorBox.css"
 
 
@@ -24,8 +24,9 @@ function ColorBox({paletteId, name, background, id, showingFullPalette, classes}
     return (
         <CopyToClipboard text={background} onCopy={changeCopyState}>
             <div className={classes.ColorBox} style={{ background: background }} >
-                <div className={`${classes.copyOverlay} ${copied && classes.showOverlay}`} style={{ background: background }} />
-                <div className={`${classes.copyMessage} ${copied && classes.showMessage}`}>
+                <div className={classNames(classes.copyOverlay, {[classes.showOverlay]: copied})} style={{ background: background }} />
+                
+                <div className={classNames(classes.copyMessage, {[classes.showMessage]: copied})}>
                     <h1>Copied!</h1>
                     <p className={classes.copyText} >{background}</p>
                 </div>
