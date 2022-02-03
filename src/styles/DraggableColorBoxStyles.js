@@ -1,4 +1,5 @@
 import media from "./sizes";
+import chroma from "chroma-js";
 
 const styles = {
     root: {
@@ -36,6 +37,7 @@ const styles = {
         letterSpacing: "1px",
         textTransform: "uppercase",
         fontSize: "12px",
+        color: props => chroma(props.color).luminance() <=  0.08 ? "rgba(255, 255, 255, 0.8)" : "rgba(0, 0, 0, 0.6)",
         display: "flex",
         justifyContent: "space-between",
         [media.down("sm")]: {
@@ -48,7 +50,6 @@ const styles = {
         },
     },
     deleteIcon: {
-        color: "rgba(0, 0, 0, 0.5)",
         transition: "all .2s ease-in-out !important"
     }
 };

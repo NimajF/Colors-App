@@ -43,7 +43,7 @@ function ColorPickerForm(props){
     return(
         <div className={classes.root} >
             <ChromePicker className={classes.picker} color={newCurrentColor} onChangeComplete={(newColorName) => changeColor(newColorName)} />
-            <ValidatorForm onSubmit={handleSubmit} >
+            <ValidatorForm onSubmit={handleSubmit} instantValidate={false} >
               <TextValidator 
                 className={classes.colorNameInput}
                 value={newColorName}
