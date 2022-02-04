@@ -66,12 +66,13 @@ function NewPaletteForm(props){
       setCurrentColor([...allColors, newColor] )
     };
 
-    const savePalette = (newPaletteName) => {
+    const savePalette = (palette, emoji) => {
       const newPalette = {
-        paletteName: newPaletteName,
-        id: newPaletteName.toLowerCase().replace(/ /g, "-"), 
+        paletteName: palette,
+        id: palette.toLowerCase().replace(/ /g, "-"), 
         colors: allColors,
-        type: "custom"
+        type: "custom",
+        emoji: emoji
       }
       props.handleSavePalette(newPalette)
       navigate('/')
