@@ -51,6 +51,7 @@ function NewPaletteForm(props){
     const [allColors, setCurrentColor] = useState(props.palettes[0].colors);
     const navigate = useNavigate()
     const isPaletteFull = allColors.length >= 20;
+    // const [areColors, areColorsState] = useState(true)
 
     const handleDrawerOpen = () => {
       setOpen(true);
@@ -110,7 +111,7 @@ function NewPaletteForm(props){
 
     return (
         <Box sx={{ display: 'flex' }}>
-          <PaletteFormNav open={open} classes={props.classes} palettes={props.palettes} savePalette={savePalette} handleDrawerOpen={handleDrawerOpen} currentColor={currentColor}/> 
+          <PaletteFormNav open={open} classes={props.classes} palettes={props.palettes} colors={allColors} savePalette={savePalette} handleDrawerOpen={handleDrawerOpen} currentColor={currentColor}/> 
         <Drawer
             sx={{
             width: drawerWidth,

@@ -35,9 +35,8 @@ const AppBar = styled(MuiAppBar, {
     }),
   }));
 function PaletteFormNav(props){
-    const { open, palettes, savePalette, handleDrawerOpen, classes } = props;
+    const { open, palettes, colors, savePalette, handleDrawerOpen, classes } = props;
     const [isFormShowing, setFormState] = useState(false);
-    
     const showForm = () => {
       setFormState(true);
     }
@@ -69,7 +68,7 @@ function PaletteFormNav(props){
                   <Link to="/" style={{ textDecoration: "none" }} >
                       <Button className={classes.button} variant="contained" color="secondary" >Go Back</Button>
                   </Link>
-                  <Button className={classes.button} variant="contained" onClick={showForm}>
+                  <Button className={classes.button} disabled={!colors.length} variant="contained" onClick={showForm}>
                       Save
                   </Button>
                 </div>
