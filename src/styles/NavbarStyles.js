@@ -12,7 +12,6 @@ const styles = {
         padding: '0 13px',
         fontSize: "22px",
         backgroundColor: "#eceff1",
-        fontFamily: "Roboto, sans-serif",
         height: "100%",
         display: 'flex',
         alignItems: "center",
@@ -29,7 +28,8 @@ const styles = {
             animationName: "funny-logo",
             animationDuration: "1s",
             letterSpacing: "2px",
-        }
+        },
+        
     },
     // "@keyframes funny-logo":{
     //     "0%": {transform: "rotate(0deg)", color: "rgb(5, 113, 128)"},
@@ -52,6 +52,8 @@ const styles = {
     },
     navTitle: {
         width: "100%",
+        fontFamily: "Roboto Mono !important",
+        color: "#495057",
         [media.down("xs")]: {
             fontSize: "1rem",
             marginLeft: "0.5rem" ,
@@ -70,6 +72,7 @@ const styles = {
         }
       },
       button: {
+        fontFamily: "Roboto Mono !important",
         margin: "0 0.5rem !important",
         [media.down("xs")]: {
           margin: "0 0.2rem !important",

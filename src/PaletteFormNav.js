@@ -66,7 +66,7 @@ function PaletteFormNav(props){
                 <div className={classes.navBtns}>
                   
                   <Link to="/" style={{ textDecoration: "none" }} >
-                      <Button className={classes.button} variant="contained" color="secondary" >Go Back</Button>
+                      <Button className={classes.button} style={{ backgroundColor: "#5159b3" }} variant="contained" color="secondary" >Go Back</Button>
                   </Link>
                   <Button className={classes.button} disabled={!colors.length} variant="contained" onClick={showForm}>
                       Save

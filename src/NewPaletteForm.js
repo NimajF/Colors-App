@@ -11,6 +11,8 @@ import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import Button from '@mui/material/Button';
+import CasinoIcon from '@mui/icons-material/Casino';
+import { red } from '@mui/material/colors';
 import { styled } from '@mui/material/styles';
 
 const drawerWidth = 300;
@@ -120,7 +122,8 @@ function NewPaletteForm(props){
                 width: drawerWidth,
                 boxSizing: 'border-box',
                 display: "flex",
-                alignItems: "center"
+                alignItems: "center",
+                backgroundColor: "#f7f7f7"
             },
             }}
             variant="persistent"
@@ -133,10 +136,10 @@ function NewPaletteForm(props){
             </IconButton>
             </DrawerHeader>
             <Divider />
-            <Typography variant="h4"  style={{ alignSelf: "center", marginTop: "2rem" }} > Create your palette </Typography>
+            <Typography variant="h4"  style={{ fontFamily: "Nunito, sans-serif", color: "#495057", alignSelf: "center", marginTop: "2rem", textAlign: "center" }} > Choose your Colors </Typography>
             <div style={{ width: "90%", display: "flex", justifyContent: "center", gap: "1px", marginTop: "1rem" }} >
-              <Button style={{ width: "200px", padding: "6px" }} variant="contained" color="secondary" onClick={clearColors} >Clear Palette</Button>
-              <Button style={{ width: "200px", padding: "6px"}} variant="contained" color="primary" onClick={addRandomColor} disabled={isPaletteFull} >Random color</Button>
+              <Button style={{ width: "200px", padding: "6px", fontFamily: "Roboto Mono", backgroundColor: red[600] }} variant="contained" color="secondary" onClick={clearColors} >Clear Palette</Button>
+              <Button style={{ width: "200px", padding: "6px" }} variant="contained" color="primary" onClick={addRandomColor} disabled={isPaletteFull} ><CasinoIcon style={{ transform: "rotate(10deg)" }} ></CasinoIcon></Button>
             </div>
             <ColorPickerForm isPaletteFull={isPaletteFull} addNewColor={addNewColor} colors={allColors} currentColor={currentColor} />
         </Drawer>
