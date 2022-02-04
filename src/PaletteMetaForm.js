@@ -8,10 +8,12 @@ import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import 'emoji-mart/css/emoji-mart.css'
 import { Picker } from 'emoji-mart';
+import styles from "./styles/PaletteMetaFormStyles";
+import { withStyles } from "@mui/styles";
 
 
 function PaletteMetaForm(props){
-    const { hideForm, handleSubmit } = props;
+    const { hideForm, handleSubmit, classes } = props;
     const [newPaletteName, setPaletteName] = useState("");
     const [emoji, setEmoji] = useState("");
 
@@ -33,20 +35,22 @@ function PaletteMetaForm(props){
     }
 
     return(
-        <div>
-            <Dialog open={true} onClose={hideForm}>
-                <DialogTitle>Choose a Palette Name</DialogTitle>
-                <ValidatorForm onSubmit={() => handleSubmit(newPaletteName, emoji)} >
-                    <DialogContent>
+        <div >
+            <Dialog open={true} onClose={hideForm}  >
+                <DialogTitle className={classes.dialogTitle} >Choose a Palette Name</DialogTitle>
+                <ValidatorForm onSubmit={() => handleSubmit(newPaletteName, emoji)} className={classes.root} >
+                    <DialogContent >
                     <DialogContentText>
                         Give your beautiful palette a name and emoji. Make sure the Palette name is not used.
                     </DialogContentText>
-                    <Picker onSelect={pickEmoji} style={{ alignSelf: "center" }} />
+                    <div className={classes.pickerContainer}>
+                        <Picker onSelect={pickEmoji}/>
+                    </div>
                     <TextValidator 
                         value={newPaletteName} 
                         label={"Palette Name"}  
                         name={newPaletteName} 
-                        onChange={handlePaletteName} 
+                        onChange={handlePaletteName}
                         fullWidth
                         margin="normal"
                         variant="standard"
@@ -68,4 +72,4 @@ function PaletteMetaForm(props){
   )
 }
 
-export default PaletteMetaForm;
+export default withStyles(styles)(PaletteMetaForm);
