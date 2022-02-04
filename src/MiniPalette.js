@@ -29,11 +29,12 @@ const MiniPalette = React.memo(props => {
                         onClick={handleDialog}
                     />}
                 <Link to={`/palette/${palette.id}`} style={{textDecoration: "none"}} >
-                    
-                <div className={classes.colors}>
+                    <div className={classes.colors}>
                         {miniColorBoxes}
-                </div>
-                <h5 className={classes.title}>{palette.paletteName}</h5>
+                    </div>
+                    <h5 className={classes.title}>
+                        {palette.paletteName}<span className={classes.emoji}>{palette.emoji}</span>
+                    </h5>
                 </Link>
             </div>
        

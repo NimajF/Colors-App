@@ -19,19 +19,28 @@ const styles = {
         backgroundImage: `url(${bg})`,
         backgroundAttachment: "fixed",
         /* background by SVGBackgrounds.com */
-        overflow: "scroll"
+        overflow: "scroll",
     },
     heading: {
         fontSize: "2rem",
-        textShadow: "1px 1px 2px black"
+        fontFamily: "Roboto Mono",
     },
     paletteFormLink: {
-        fontSize: "1.1rem",
-        textShadow: "1px 2px 6px black",
-        transition: "transform .2s ease-in-out",
+        backgroundColor: "#5159b3",
+        color: "#f5f3f4 !important",
+        padding: "12px",
+        borderRadius: "5px",
+        boxShadow: "0 5px 2px 0 rgb(0 0 0 / 10%), 0 5px 2px 0 rgb(0 0 0 / 10%)",
+        fontSize: "1rem",
+        fontFamily: "Roboto Mono !important",
+        textShadow: "1px 2px 6px #3f37c9",
+        transition: ".2s ease-in-out",
         "&:hover": {
-            transform: "scale(1.01)",
-            color: "white",
+            backgroundColor: "#5159b3",
+            boxShadow: "0 10px 10px 0 rgb(0 0 0 / 15%), 0 7px 10px 0 rgb(0 0 0 / 15%)"
+        },
+        "&:active": {
+            backgroundColor: "#3d348b"
         }
     },
     container: {
@@ -40,6 +49,7 @@ const styles = {
         alignItems: "flex-start",
         flexDirection: "column",
         flexWrap: "wrap",
+        marginBottom: "3rem",
         [media.down("xl")]: {
             width: "80%",  
         },
