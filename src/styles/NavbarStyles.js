@@ -55,9 +55,8 @@ const styles = {
         fontFamily: "Roboto Mono !important",
         color: "#495057",
         [media.down("xs")]: {
-            fontSize: "1rem",
-            marginLeft: "0.5rem" ,
-            width: "80%"
+            fontSize: "1rem !important",
+            marginLeft: "-0.5rem !important",
           }
     },
     navBtns: {
@@ -67,9 +66,10 @@ const styles = {
           textDecoration: "none"
         },
         [media.down("xs")]: {
-          marginRight: "0.04rem",
+          marginLeft: "-0.5rem !important",
           flexDirection: "column"
-        }
+        },
+        
       },
       button: {
         fontFamily: "Roboto Mono !important",
