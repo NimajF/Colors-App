@@ -108,8 +108,8 @@ const styles = {
         opacity: "0",
         color: "white",
         "& h1": {
+            fontFamily: "Roboto Mono",
             fontWeight: "400",
-            textShadow: "1px 2px 10px rgb(26, 26, 26)",
             background: "rgba(255, 255, 255, 0.2)",
             width: "100%",
             textAlign: "center",
