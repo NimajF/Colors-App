@@ -49,7 +49,7 @@ const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(
 
 function NewPaletteForm(props){
     const [open, setOpen] = useState(false);
-    const [currentColor, setColor] = useState('aquamarine');
+    const [currentColor, setColor] = useState('#0A6BEF');
     const [allColors, setCurrentColor] = useState(props.palettes[0].colors);
     const navigate = useNavigate()
     const isPaletteFull = allColors.length >= 20;
