@@ -34,11 +34,11 @@ function Navbar(props){
     return(
         <header className={classes.Navbar}>
             <div className="logo"> 
-                <Link to="/">reactcolorpicker</Link>
+                <Link to="/" style={{ fontFamily: "Roboto Mono" }} >reactcolorpicker</Link>
             </div>
             { showingAllColors && ( 
             <div className="slider-container">
-                <span style={{ fontFamily: "Poppins", fontWeight: "bolder" }}>Level: {level}</span>
+                <span style={{ fontFamily: "Roboto Mono", fontWeight: "400" }}>Level: {level}</span>
                 <div className={classes.Slider}>
                     <Slider
                         defaultValue={level}
