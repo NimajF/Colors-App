@@ -4,6 +4,7 @@ import Palette from './Palette';
 import PaletteList from './PaletteList';
 import SingleColorPalette from './SingleColorPalette';
 import NewPaletteForm from './NewPaletteForm';
+import NotFound from './NotFound';
 import seedsColors from './seedsColors';
 
 
@@ -33,6 +34,7 @@ function App() {
         <Route exact path="/palette/new" element={<NewPaletteForm handleSavePalette={handleSavePalette} palettes={newPalettes} />}/>
         <Route exact path="/palette/:id" element={<Palette palettes={newPalettes}/>} />
         <Route path="/palette/:paletteId/:colorId" element={<SingleColorPalette palettes={newPalettes} />} />
+        <Route path="*" element={<NotFound/>} />
       </Routes>
     </Router>
     
