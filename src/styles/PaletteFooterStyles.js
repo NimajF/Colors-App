@@ -13,11 +13,16 @@ const styles = {
         justifyContent: "center",
         fontWeight: "400",
         fontFamily: "Roboto Mono",
+        marginRight: "1rem",
+        marginBottom: "0.5rem",
         "& p": {
             marginRight: "1rem",
             fontSize: "1.3rem",
-            color: "#424b54"
-        }
+            color: "#212529"
+        },
+        "& span": {
+            fontSize: "1.3rem"
+        } 
     }
 }
 export default styles;
