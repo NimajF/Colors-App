@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import Palette from './Palette';
 import PaletteList from './PaletteList';
 import SingleColorPalette from './SingleColorPalette';
@@ -28,7 +28,7 @@ function App() {
 
 
   return (
-    <Router>
+    
       <Routes>
         <Route exact path="/" element={<PaletteList palettes={newPalettes} deletePalette={deletePalette} />}/>
         <Route exact path="/palette/new" element={<NewPaletteForm handleSavePalette={handleSavePalette} palettes={newPalettes} />}/>
@@ -36,7 +36,7 @@ function App() {
         <Route path="/palette/:paletteId/:colorId" element={<SingleColorPalette palettes={newPalettes} />} />
         <Route path="*" element={<NotFound/>} />
       </Routes>
-    </Router>
+    
     
   );
 }
