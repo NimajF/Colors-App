@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/Colors-App/static/css/main.ae5fe812.css",
-    "main.js": "/Colors-App/static/js/main.f02c145c.js",
+    "main.js": "/Colors-App/static/js/main.8d9a0c00.js",
     "static/js/787.75167ffe.chunk.js": "/Colors-App/static/js/787.75167ffe.chunk.js",
     "static/media/bg.svg": "/Colors-App/static/media/bg.84487daf5f14ccc572f9021ea8c0f25e.svg",
     "index.html": "/Colors-App/index.html",
     "main.ae5fe812.css.map": "/Colors-App/static/css/main.ae5fe812.css.map",
-    "main.f02c145c.js.map": "/Colors-App/static/js/main.f02c145c.js.map",
+    "main.8d9a0c00.js.map": "/Colors-App/static/js/main.8d9a0c00.js.map",
     "787.75167ffe.chunk.js.map": "/Colors-App/static/js/787.75167ffe.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.ae5fe812.css",
-    "static/js/main.f02c145c.js"
+    "static/js/main.8d9a0c00.js"
   ]
 }
