@@ -1,4 +1,25 @@
-# Getting Started with Create React App
+
+# Beautiful Colors App 🎨
+
+### The final project of [The Modern React Bootcamp](https://www.udemy.com/course/modern-react-bootcamp/).
+
+#### The course used class-based Components as it was outdated. I liked the challenge of making it alone, with Functional Components and hooks.
+
+##### All the CSS and some app features were tweaked and implemented by me.
+
+You can visit the app [here](https://nimajf.github.io/Colors-App/).
+
+### Preview
+![image](https://user-images.githubusercontent.com/89944815/152701678-93efb1a0-3785-4ebb-84ef-d34a24c05f90.png)
+![image](https://user-images.githubusercontent.com/89944815/152701973-0451f91b-398a-442f-a456-348f8000fed4.png)
+![image](https://user-images.githubusercontent.com/89944815/152701697-9cba9e38-007b-412e-9442-9c23b7537e58.png)
+![image](https://user-images.githubusercontent.com/89944815/152701719-7ff4344e-c3a3-410c-a91b-78f599e82f25.png)
+![image](https://user-images.githubusercontent.com/89944815/152701730-e605c45a-9e2f-407d-8ad6-b9d092cfebbf.png)
+![image](https://user-images.githubusercontent.com/89944815/152701758-a9774941-91dc-46fa-b012-fa7bd344afff.png)
+![image](https://user-images.githubusercontent.com/89944815/152701784-20e074d6-f2d5-4328-9c6d-fb5726112914.png)
+
+
+<br><br>
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
