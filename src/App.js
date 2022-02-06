@@ -5,12 +5,12 @@ import PaletteList from './PaletteList';
 import SingleColorPalette from './SingleColorPalette';
 import NewPaletteForm from './NewPaletteForm';
 import NotFound from './NotFound';
-import seedsColors from './seedsColors';
+import customSeedColors from './customSeedColors';
 
 
 function App() {
   const savedPalettes = JSON.parse(window.localStorage.getItem("palettes"));
-  const [newPalettes, setNewPalette] = useState(savedPalettes || seedsColors);
+  const [newPalettes, setNewPalette] = useState(savedPalettes || customSeedColors);
 
   const handleSavePalette = newSavedPalette => {
     setNewPalette([...newPalettes, newSavedPalette]);

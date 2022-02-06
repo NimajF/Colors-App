@@ -13,13 +13,13 @@ import { withStyles } from "@mui/styles";
 
 
 function PaletteMetaForm(props){
-    const { hideForm, handleSubmit, classes } = props;
+    const { hideForm, handleSubmit, classes, palettes } = props;
     const [newPaletteName, setPaletteName] = useState("");
     const [emoji, setEmoji] = useState("");
 
     useEffect(() => {
             ValidatorForm.addValidationRule("isPaletteNameUnique", value => {
-                return props.palettes.every(
+                return palettes.every(
                 ({ paletteName }) => paletteName.toLowerCase() !== value.toLowerCase()
                 );
             });

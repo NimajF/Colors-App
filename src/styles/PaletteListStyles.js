@@ -21,9 +21,28 @@ const styles = {
         /* background by SVGBackgrounds.com */
         overflow: "scroll",
     },
+    
     heading: {
         fontSize: "2rem",
         fontFamily: "Roboto Mono",
+        [media.down("xs")]: { 
+            width: "70%"
+        }
+    },
+    titles: {
+        fontSize: "1.5rem",
+        fontFamily: "Roboto Mono",
+        backdropFilter: "blur(5px)",
+        color: "white",
+        backgroundColor: "rgba(255, 255, 255, 0.10)",
+        boxShadow: "10px 10px 1px 0 rgb(0 0 0 / 20%)",
+        width: "30%",
+        padding: "1rem",
+        borderRadius: "5px",
+        marginTop: "4rem",
+        [media.down("xs")]: { 
+            width: "90%"
+        },
     },
     paletteFormLink: {
         backgroundColor: "#5159b3",
@@ -82,7 +101,16 @@ const styles = {
             gridTemplateColumns: "repeat(1, 100%)",
             gridGap: "1.4rem"
         },
-        
+    },
+    noPalettesMsg: {
+        fontFamily: "Roboto Mono",
+        fontSize: "1.3rem",
+        backdropFilter: "blur(5px)",
+        color: "white",
+        backgroundColor: "rgba(255, 255, 255, 0.10)",
+        width: "100%",
+        padding: "1rem",
+        borderRadius: "5px",
     }
 } 
 export default styles;

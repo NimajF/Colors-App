@@ -1,4 +1,5 @@
 import React, { useCallback, useState } from "react";
+import seedsColors from './seedsColors';
 import MiniPalette from "./MiniPalette";
 import { Link } from "react-router-dom";
 import { CSSTransition, TransitionGroup} from 'react-transition-group';
@@ -44,8 +45,9 @@ function PaletteList(props){
                     <h1 className={classes.heading} >React Colors</h1>
                     <Link  className={classes.paletteFormLink} to={`/palette/new`}>Create your own palette</Link>
                 </nav>
+                <p className={classes.titles} >Trending Palettes</p>
                 <TransitionGroup className={classes.palettes}>
-                    {palettes.map(palette => (
+                    {seedsColors.map(palette => (
                         <CSSTransition key={palette.id} classNames="fade" timeout={300}>
                             <MiniPalette 
                                 key={palette.id} 
@@ -55,6 +57,18 @@ function PaletteList(props){
                         </CSSTransition>
                      ))}
                 </TransitionGroup>
+                <p className={classes.titles} >Custom Palettes</p>
+                {palettes.length ? <TransitionGroup className={classes.palettes} >
+                    {palettes.map(palette => (
+                        <CSSTransition key={palette.id} classNames="fade" timeout={300}>
+                            <MiniPalette 
+                                key={palette.id} 
+                                id={palette.id} 
+                                palette={palette} 
+                                openDialog={palette.type === "custom" && openDialog} />
+                        </CSSTransition>
+                     ))}
+                </TransitionGroup> : <p className={classes.noPalettesMsg} >No custom palettes to show. Start creating Beautiful Palettes </p> }
             </div>
             <Dialog open={open} aria-labelledby="delete-dialog-title" onClose={closeDialog} >
                 <DialogTitle id="delete-dialog-title" >Delete this Palette?</DialogTitle>

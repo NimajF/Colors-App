@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { arrayMoveImmutable } from "array-move";
+import seedsColors from './seedsColors';
 import PaletteFormNav from './PaletteFormNav';
 import ColorPickerForm from "./ColorPickerForm";
 import DraggableColorList from "./DraggableColorList";
@@ -50,7 +51,7 @@ const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(
 function NewPaletteForm(props){
     const [open, setOpen] = useState(false);
     const [currentColor, setColor] = useState('#0A6BEF');
-    const [allColors, setCurrentColor] = useState(props.palettes[0].colors);
+    const [allColors, setCurrentColor] = useState(seedsColors[0].colors);
     const navigate = useNavigate()
     const isPaletteFull = allColors.length >= 20;
     // const [areColors, areColorsState] = useState(true)
@@ -92,7 +93,7 @@ function NewPaletteForm(props){
     };
 
     const addRandomColor= () => {
-      let selectRandomPalette = props.palettes[Math.floor(Math.random() * props.palettes.length)];
+      let selectRandomPalette = seedsColors[Math.floor(Math.random() * seedsColors.length)];
       let randomColor;
       let isDuplicateColor = true;
       while (isDuplicateColor) {
