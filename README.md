@@ -10,8 +10,8 @@
 You can visit the app [here](https://nimajf.github.io/Colors-App/).
 
 ### Preview
-![image](https://user-images.githubusercontent.com/89944815/152701678-93efb1a0-3785-4ebb-84ef-d34a24c05f90.png)
-![image](https://user-images.githubusercontent.com/89944815/152701973-0451f91b-398a-442f-a456-348f8000fed4.png)
+![image](https://user-images.githubusercontent.com/89944815/152706971-c8b1eb40-db03-44bf-8342-f88e4c1d26f4.png)
+![image](https://user-images.githubusercontent.com/89944815/152706997-918193d3-af06-45ff-b11c-154a4e6f6891.png)
 ![image](https://user-images.githubusercontent.com/89944815/152701697-9cba9e38-007b-412e-9442-9c23b7537e58.png)
 ![image](https://user-images.githubusercontent.com/89944815/152701719-7ff4344e-c3a3-410c-a91b-78f599e82f25.png)
 ![image](https://user-images.githubusercontent.com/89944815/152701730-e605c45a-9e2f-407d-8ad6-b9d092cfebbf.png)
