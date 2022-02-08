@@ -1,11 +1,18 @@
 
 # Beautiful Colors App 🎨
 
-### The final project of [The Modern React Bootcamp](https://www.udemy.com/course/modern-react-bootcamp/).
+### The main project of [The Modern React Bootcamp](https://www.udemy.com/course/modern-react-bootcamp/).
 
-#### The course used class-based Components as it was outdated. I liked the challenge of making it alone, with Functional Components and hooks.
+#### This project is made with React and Material UI.
 
-##### All the CSS and some app features were tweaked and implemented by me.
+> React Router v6 has been used for the app navigation.
+
+<br> 
+
+* The course used class-based Components as it was outdated. I liked the challenge of making it alone, with Functional Components and hooks.
+* All the CSS (besides Material UI) and some app features were tweaked and implemented by me.
+
+<br> 
 
 You can visit the app [here](https://nimajf.github.io/Colors-App/).
 
