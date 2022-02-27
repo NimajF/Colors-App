@@ -11,7 +11,7 @@ function SingleColorPalette(props){
     const { classes, palettes } = props
     const { paletteId, colorId } = useParams();
     const [format, setFormat] = useState("hex");
-
+    console.log(colorId)
 
     const tryToFindPalette = id => {
         return palettes.find(function(palette) {

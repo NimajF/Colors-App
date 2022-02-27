@@ -34,7 +34,7 @@ function App() {
         <Route exact path="/" element={<PaletteList palettes={newPalettes} deletePalette={deletePalette} />}/>
         <Route exact path="/palette/new" element={<NewPaletteForm handleSavePalette={handleSavePalette} palettes={newPalettes} />}/>
         <Route exact path="/palette/:id" element={<Palette palettes={allPalettes}/>} />
-        <Route path="/palette/:paletteId/:colorId" element={<SingleColorPalette palettes={newPalettes} />} />
+        <Route path="/palette/:paletteId/:colorId" element={<SingleColorPalette palettes={allPalettes} />} />
         <Route path="*" element={<NotFound/>} />
       </Routes>
     
